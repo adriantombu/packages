@@ -1,0 +1,20 @@
+{
+  "name": "@adriantombu/vat-number",
+  "version": "0.0.1",
+  "description": "A tool to convert a french SIREN/SIRET to a VAT number and validate with the VIES API",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "standard ./src/index.js --verbose | snazzy",
+    "build": "minify src -d lib"
+  },
+  "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-minify": "^0.2.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "soap": "^0.23.0"
+  }
+}
