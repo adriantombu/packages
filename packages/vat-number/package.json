@@ -2,6 +2,7 @@
   "name": "@adriantombu/vat-number",
   "version": "0.0.1",
   "description": "A tool to convert a french SIREN/SIRET to a VAT number and validate with the VIES API",
+  "repository": "https://github.com/adriantombu/vat-number",
   "main": "lib/index.js",
   "scripts": {
     "lint": "standard ./src/index.js --verbose | snazzy",
