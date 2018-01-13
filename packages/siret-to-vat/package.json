@@ -1,0 +1,18 @@
+{
+  "name": "@adriantombu/siret-to-vat",
+  "version": "0.0.1",
+  "description": "This small library converts a French SIREN or SIRET to a valid VAT number.",
+  "repository": "https://github.com/adriantombu/siret-to-vat",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "standard ./src/index.js --verbose | snazzy",
+    "build": "minify src -d lib"
+  },
+  "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-minify": "^0.2.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  }
+}
