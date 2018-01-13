@@ -19,7 +19,6 @@ exports.convertToVatNumber = function (nbr) {
     case 13:
       tva = number
       break
-
     // SIRET
     case 14:
       tva = getVatNumber(checkAndConvertSiret(number))
@@ -32,7 +31,7 @@ exports.convertToVatNumber = function (nbr) {
 exports.checkVatNumber = async function (vatNumber) {
   const url = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl'
   const args = {
-    countryCode: 'FR',
+    countryCode: vatNumber.substring(0, 2),
     vatNumber: vatNumber.substring(2)
   }
 
@@ -62,7 +61,7 @@ const checkAndConvertSiret = siret => {
     if (i % 2 === 0) {
       total += 2 * number
 
-      if ((2 * number) >= 10) {
+      if (2 * number >= 10) {
         total -= 9
       }
     } else {
