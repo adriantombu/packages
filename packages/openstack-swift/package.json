@@ -1,0 +1,23 @@
+{
+  "name": "@adriantombu/openstack-swift",
+  "version": "0.0.1",
+  "description": "A simple wrapper to easily use the Openstack Swift storage provider",
+  "repository": "https://github.com/adriantombu/openstack-swift",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "standard ./src/index.js --verbose | snazzy",
+    "build": "yarn lint && minify src -d lib"
+  },
+  "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-minify": "^0.2.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "es6-promisify": "^5.0.0",
+    "getenv": "^0.7.0",
+    "pkgcloud": "^1.5.0"
+  }
+}
