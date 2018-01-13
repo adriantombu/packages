@@ -1,26 +1,20 @@
-# Récupération et vérification d'un numéro de TVA français
-Cette librairie permet de générer un numéro de TVA à partir d'un SIREN ou d'un SIRET et de le vérifier ensuite via le service de validation de l'Union Européenne (VIES).
+EUROPEAN VAT NUMBER
+===================
 
-**Important :** cette librairie ne fonctionne actuellement que pour la France
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Vous pouvez installer la librairie avec un `yarn add @adriantombu/vat-number`
+This library validates an european VAT number and gets the related business data with through VIES API
 
-## Convertir un SIREN ou SIRET
+### How to use it
+
+* Install the library first with `yarn add @adriantombu/vat-number`
+* And then import it in your script
+
 ```
-const {convertToVatNumber} = require('@adriantombu/vat-number')
-
-const siren = 817871668
-const vat = convertToVatNumber(817871668)
-
-"FR16817871668"
-```
-
-## Vérifier un numéro de TVA
-```
-const {checkVatNumber} = require('@adriantombu/vat-number')
+const getVatNumberInfos = require('@adriantombu/vat-number')
 
 const vatNumber = 'FR16817871668';
-const checkedVat = await checkVatNumber(vatNumber)
+const checkedVat = await getVatNumberInfos(vatNumber)
 
 {
   country: 'FR',
@@ -31,16 +25,9 @@ const checkedVat = await checkVatNumber(vatNumber)
 }
 ```
 
-## Comment modifier cette librairie
-* Cloner le dépôt
-* Installer les packages avec un petit `yarn`
-* Modifier le fichier `src/index.js`
-* Faire un petit coup de linting avec `yarn lint`
-* Compiler avec la commande `yarn build`
-* Tadaa !
+### How to contribute
 
-### TODO
-* Meilleure gestion des erreurs
-* Ajouter des tests
-* Ajouter de nouveaux pays
-* Some English too
+* Clone the repository `git clone git@github.com:adriantombu/vat-number.git`
+* Install the packages with `yarn install`
+* Modify the `src/index.js` file
+* When everything's done, you can run `yarn build` to wrap everything up !
