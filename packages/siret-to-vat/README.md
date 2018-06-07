@@ -1,7 +1,7 @@
 SIREN/SIREN to VAT number
 =========================
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Travis](https://travis-ci.org/adriantombu/siret-to-vat.svg?branch=master)](https://travis-ci.org/adriantombu/siret-to-vat)
 
 This small library converts a French SIREN or SIRET to a valid VAT number. You can then use the [vat number library](https://github.com/adriantombu/vat-number) to check it against the official European records.
 

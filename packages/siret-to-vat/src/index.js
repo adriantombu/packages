@@ -1,25 +1,20 @@
 'use strict'
 
-module.exports = function (nbr) {
-  if (!nbr) {
-    return false
+module.exports = nbr => {
+  if (!['string', 'number'].includes(typeof nbr)) {
+    throw new Error(`Expected a number or string number but got a ${typeof nbr}`)
   }
 
-  const number = nbr.toString().replace(' ', '')
-  let tva = null
+  const number = nbr.toString().replace(/\s/g, '')
 
   switch (number.length) {
-    // SIREN
     case 9:
-      tva = getVatNumber(number)
-      break
-    // SIRET
+      return getVatNumber(number)
     case 14:
-      tva = getVatNumber(checkAndConvertSiret(number))
-      break
+      return getVatNumber(checkAndConvertSiret(number))
+    default:
+      throw new Error(`The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)`)
   }
-
-  return tva
 }
 
 const checkAndConvertSiret = siret => {
@@ -37,12 +32,11 @@ const checkAndConvertSiret = siret => {
     even = !even
   }
 
-  if (total % 10 === 0) {
-    return siret.substring(0, 9)
-  } else {
-    // invalid siret number
-    return null
+  if (total % 10 !== 0) {
+    throw new Error('The SIRET provided is not valid')
   }
+
+  return siret.substring(0, 9)
 }
 
 const getVatNumber = number => {
@@ -50,3 +44,6 @@ const getVatNumber = number => {
 
   return `FR${validation}${number}`
 }
+
+module.exports.checkAndConvertSiret = checkAndConvertSiret
+module.exports.getVatNumber = getVatNumber
