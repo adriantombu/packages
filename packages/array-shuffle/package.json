@@ -1,0 +1,34 @@
+{
+  "name": "@adriantombu/array-shuffle",
+  "version": "0.0.1",
+  "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
+  "repository": "https://github.com/adriantombu/array-shuffle",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "minify ./src/index.js -d ./lib/",
+    "lint": "standard ./src/* --verbose | snazzy",
+    "test": "jest"
+  },
+  "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-minify": "^0.2.0",
+    "jest": "^23.1.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "it",
+      "expect"
+    ]
+  }
+}

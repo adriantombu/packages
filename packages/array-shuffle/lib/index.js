@@ -1,0 +1,1 @@
+'use strict';module.exports=(a)=>{if(!Array.isArray(a))throw new Error(`Got a parameter of type ${typeof a} instead of an array`);return a.map((b)=>[Math.random(),b]).sort((c,a)=>c[0]-a[0]).map((b)=>b[1])};
