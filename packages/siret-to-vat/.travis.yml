@@ -14,5 +14,8 @@ jobs:
     - stage: npm release
       deploy:
         provider: npm
-        api_key: $NPM_API_KEY
-        on: deploy-npm-release
+        api_key:
+          secure: "jecilrp+LwSvm7DJxpRbarbqhzXEadBW7ZzUurIaGcWTuHQp/fwcFSclw/bXzJi+LQm1go8hmoSUAdTiDOtNX5FuF19qj1WTZDMGRpPLJxpVWIUuCtsqODpezYrq/S8i0nMUPxQk8EcPHNMYmlep5QFFnaqlrxtfMMw/JA/4Ic6Afmm63foK5WXs4y9oxXtztupPT2jPU+T4sHfTDIy8j1hXBizNTgNSBc9dcIEDrTImrkX4RDc/AESBu4/gbYxEyOQt3GcC7OOHbU9bbhwZLhkjlkazIAhfbpH7WwL0Lfr5LKzzpIA3leB2v6QTHIKhV44Lqipb9ulVYpMoiVVgK3OG7yaPXrFhaBjMWr6poUapx2mZFEUIcETBIIa+XR296E6sO83VlVgmKI+K1m+v3MjzYGWdwXPhWu0t5GGXCX1KgwPhPoH/oB4+5Fq8dlj6h584BQia9cotYmEujtaehQknolbIuRI3eyGob8+eBv8N9LuMfqKTB89rSmxZgX5OSTx0hDv8aYZFblD6zV4cd+I6VqQCyyv4opKV0N3jpBaZ9zNmx28xqIL6fkJ28RpRI+xNIFKq7M107d9MrrBnFF9NRgUOWqSXWNjjorhkvA5cop4W1c0TAv+IRMwo7OafWU+f3sA5IVvt82VEoiU4HiOyP2SN+c9AthFKHL9U45s="
+        on:
+          tags: true
+          branch: production
