@@ -11,3 +11,14 @@ jobs:
       script: npm run lint
     - stage: Test
       script: npm run test
+    - stage: npm release
+      install: true # disable automatic npm install
+      script: true # disable automatic npm test
+      deploy:
+        provider: npm
+        email:
+          secure: "TXzglBC8M+gRc+4tHunzjSCFaJY6joXu75MEd4f8MsjSem4Da+DC0exproBO04UgU/HMfpKrbub6xlE0XOMHQRLkITv0Gc40eDuo0yXp65qbkXLbJHtKkrGD1+xRIQEt5D0SUgTji8OFF3uhMxbl1UVyqB93309mGkBOiL6LkqbE1Z6KAlxNwQidM7zDht3d+GJBnfSrxzi4DrzcT31UPz22wPVtJtjyAnMbdCUfRwuUJUT6D0eq+OTNjvNt5Irh1eEdLcIdOZgHW1h89Ie+7KUGgXxfVNOcKGJxM3jeUrkggHCQIXEUjuhoTLtnlp97wWyovBPbAb5Bek+LSUR/HZ+PhP2zl+VblOcq5kbWijMD3mHnzm/Gqq4Ay3FVeYPvU3gnGZruA6/vaHHlsTcKDCrw9M3/zegv5OLvk4tqwAI5FTKOaqwZsYwsl0XrPl1DSX7uFPLSYM1Ty6uioq3b59tue9hSNsK4OkECOAlFS8MqiKpDmlaqWaKVSoyzIQxBa0eyNKmHWE6qewDCOrEhkG/PbS0yvcQQljdnqU2zRBpLybIqJAUR0n3ImAKpj1rynBsJeJbznqeG81BKhc/jIoaxkr4yH4+CALEqRwBFNFk2KBhZ1Zgi8lMXkVmuHGiz5ReyWwi0qGOVL/LSxk5uEDmcfxCC/1VNGj4hD2O3FCA="
+        api_key:
+          secure: "Ax8MHpDKaPwciyg8GwMmxJZVRq/yfHCzM5spE6ByxIFtlUsKyT1EGrBYdCTyYa5u6QJ+qfGzcFa616wFhGQcN1bjAwyhPCSqsA4j0kxotFzekl6fs2X+tj+9Zf+wWUueR7/nVnrT60nIhlUOn4RGxoxvLOsmzbRSLjQJCrRZS1D2JB6hjegkyCX9R8qxjZVMoMv0fDK0vthUoWujt8MG7T8vIbobGZsbQfhR7rSmyHNi2KypEs7rhka8ezLmkhmckZzJ6SXx1TFQ439JHbgjvoIYlvG+Ps1JowJSps2JFTh+Tff9r+o4AQNV6xfwn/j9QLukgo+eZrfZksBOicV2kHaOM38eiXegYjRm7Pwl+6Pa579B87FWrk8A/caWIRFikndKqk9YXDfdFXZtqFyEP/SmZjyAWq7ZE6BH0164lG0V3TrlSlXJUBfeSMekvkOi3hx/e2A88wzBT6+/1T+JnztW29hqKoas8kA5m7dwvznJe80H7NWMFQ9Pa7QezuaFM94yJfxi9PYWVqzfUxKJYfyJrXk1AfCQsmwRG5eZpm9EkDM2bk2X6jsdddSpNnfg8hy3G5gz798iNu9gN2A2hcClniZTdI9kZR6YltVsses5t1Np8J16ZsN02qWxagRJMS8fWjjg4enrMdZZQ7QI8sLqklICxaMFh1cjwHQZYqA="
+        on:
+          tags: true
