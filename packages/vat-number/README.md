@@ -1,9 +1,9 @@
 EUROPEAN VAT NUMBER
 ===================
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)  [![Travis](https://travis-ci.org/adriantombu/vat-number.svg?branch=master)](https://travis-ci.org/adriantombu/vat-number)
 
-This library validates an european VAT number and gets the related business data with through VIES API
+This library validates an european VAT number and gets the related business data through the VIES API
 
 ### How to use it
 
