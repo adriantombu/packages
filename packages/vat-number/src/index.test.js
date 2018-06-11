@@ -1,5 +1,7 @@
 const getVatNumberInfos = require('./index')
 
+jest.setTimeout(30000)
+
 it('the processed vat should return a proper object', async () => {
   const vatNumber = 'FR16817871668'
   const data = await getVatNumberInfos(vatNumber)
