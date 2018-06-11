@@ -7,7 +7,7 @@
   "scripts": {
     "build": "minify ./src/index.js -d ./lib/",
     "lint": "standard ./src/* --verbose | snazzy",
-    "test": "jest"
+    "test": "jest --forceExit"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
