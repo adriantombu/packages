@@ -1,5 +1,5 @@
 # Openstack Swift storage
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![buddy pipeline](https://app.buddy.works/otso/openstack-swift/pipelines/pipeline/154013/badge.svg?token=7c466137d3a236e04f255619e7e906afa90a993122df5bb06eec336813d1b265 "buddy pipeline")](https://app.buddy.works/otso/openstack-swift/pipelines/pipeline/154013)
 
 This library is a simple wrapper over [pkgcloud](https://github.com/pkgcloud/pkgcloud) to be able to use the [Swift storage provider](https://docs.openstack.org/swift/latest/) from Openstack easily.
 
