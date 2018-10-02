@@ -11,16 +11,21 @@ module.exports = async vatNumber => {
 
   try {
     const client = await soap.createClientAsync(apiUrl)
-    const result = await client.checkVatAsync(args)
+    const results = await client.checkVatAsync(args)
 
     return {
-      country: result[0].countryCode,
-      vatNumber: result[0].vatNumber,
-      fullVatNumber: `${result[0].countryCode}${result[0].vatNumber}`,
-      name: result[0].name,
-      address: result[0].address
+      country: results[0].countryCode,
+      vatNumber: results[0].vatNumber,
+      fullVatNumber: `${results[0].countryCode}${results[0].vatNumber}`,
+      name: results[0].name,
+      address: results[0].address,
+      valid: true
     }
   } catch (err) {
-    throw new Error('The VAT number provided is not valid')
+    return {
+      fullVatNumber: vatNumber,
+      message: 'The VAT number provided is not valid',
+      valid: false
+    }
   }
 }

@@ -22,6 +22,22 @@ const checkedVat = await getVatNumberInfos(vatNumber)
   fullVatNumber: 'FR16817871668',
   name: 'SASU OTSO',
   address: 'CS 21531\n59 ALL JEAN JAURES\n31000 TOULOUSE',
+  valid: true
+}
+```
+
+In case of an invalid VAT number, you will receive the following result, with the value `valid` set to `false`
+
+```
+const getVatNumberInfos = require('@adriantombu/vat-number')
+
+const vatNumber = 'FRXXXXXXXXXX8';
+const checkedVat = await getVatNumberInfos(vatNumber)
+
+{
+  fullVatNumber: 'FRXXXXXXXXXX8',
+  message: 'The VAT number provided is not valid',
+  valid: false
 }
 ```
 
