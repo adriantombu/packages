@@ -1,7 +1,7 @@
 EUROPEAN VAT NUMBER
 ===================
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![buddy pipeline](https://app.buddy.works/otso/vat-number/pipelines/pipeline/139963/badge.svg?token=7c466137d3a236e04f255619e7e906afa90a993122df5bb06eec336813d1b265 "buddy pipeline")](https://app.buddy.works/otso/vat-number/pipelines/pipeline/139963)
+[![npm version](https://badge.fury.io/js/%40adriantombu%2Fvat-number.svg)](https://badge.fury.io/js/%40adriantombu%2Fvat-number) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![buddy pipeline](https://app.buddy.works/otso/vat-number/pipelines/pipeline/139963/badge.svg?token=7c466137d3a236e04f255619e7e906afa90a993122df5bb06eec336813d1b265 "buddy pipeline")](https://app.buddy.works/otso/vat-number/pipelines/pipeline/139963)
 
 This library validates an european VAT number and gets the related business data through the VIES API
 
