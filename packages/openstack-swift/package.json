@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/openstack-swift",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple wrapper to easily use the Openstack Swift storage provider",
   "repository": "https://github.com/adriantombu/openstack-swift",
   "main": "lib/index.js",
