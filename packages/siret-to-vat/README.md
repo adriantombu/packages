@@ -16,7 +16,25 @@ const convertToVatNumber = require('@adriantombu/siret-to-vat')
 const siren = 817871668
 const vat = convertToVatNumber(siren)
 
-"FR16817871668"
+{
+  vatNumber: "FR16817871668",
+  valid: true
+}
+```
+
+In case of an invalid number, you will receive the following result, with the value `valid` set to `false`
+
+```
+const convertToVatNumber = require('@adriantombu/siret-to-vat')
+
+const siren = 123456'
+const vat = convertToVatNumber(siren)
+
+{
+  vatNumber: 123456',
+  message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+  valid: false
+}
 ```
 
 ### How to contribute

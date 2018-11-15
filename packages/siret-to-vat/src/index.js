@@ -2,18 +2,36 @@
 
 module.exports = nbr => {
   if (!['string', 'number'].includes(typeof nbr)) {
-    throw new Error(`Expected a number or string number but got a ${typeof nbr}`)
+    return {
+      vatNumber: nbr,
+      message: `Expected a number or string number but got a ${typeof nbr}`,
+      valid: false
+    }
   }
 
   const number = nbr.toString().replace(/\s/g, '')
 
-  switch (number.length) {
-    case 9:
-      return getVatNumber(number)
-    case 14:
-      return getVatNumber(checkAndConvertSiret(number))
-    default:
-      throw new Error(`The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)`)
+  try {
+    switch (number.length) {
+      case 9:
+        return {
+          vatNumber: getVatNumber(number),
+          valid: true
+        }
+      case 14:
+        return {
+          vatNumber: getVatNumber(checkAndConvertSiret(number)),
+          valid: true
+        }
+      default:
+        throw new Error('The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)')
+    }
+  } catch (err) {
+    return {
+      vatNumber: nbr,
+      message: err.message,
+      valid: false
+    }
   }
 }
 
