@@ -35,6 +35,17 @@ it('a wrong type should return an error', () => {
   expect(arrayValue.valid).toBe(false)
 })
 
+it('a wrong SIRET should get an error', () => {
+  const siret = '81787166800021'
+  const vat = convertToVatNumber(siret)
+
+  expect(vat).toEqual({
+    vatNumber: '81787166800021',
+    message: 'The SIRET provided is not valid',
+    valid: false
+  })
+})
+
 it('a valid SIRET should get a valid VAT number', () => {
   const siret = '81787166800023'
   const vat = convertToVatNumber(siret)

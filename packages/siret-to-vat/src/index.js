@@ -24,7 +24,11 @@ module.exports = nbr => {
           valid: true
         }
       default:
-        throw new Error('The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)')
+        return {
+          vatNumber: nbr,
+          message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+          valid: false
+        }
     }
   } catch (err) {
     return {
