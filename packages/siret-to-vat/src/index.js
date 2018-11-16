@@ -11,31 +11,35 @@ module.exports = nbr => {
 
   const number = nbr.toString().replace(/\s/g, '')
 
-  try {
-    switch (number.length) {
-      case 9:
-        return {
-          vatNumber: getVatNumber(number),
-          valid: true
-        }
-      case 14:
-        return {
-          vatNumber: getVatNumber(checkAndConvertSiret(number)),
-          valid: true
-        }
-      default:
+  switch (number.length) {
+    case 9:
+      return {
+        vatNumber: getVatNumber(number),
+        valid: true
+      }
+
+    case 14:
+      const vat = checkAndConvertSiret(number)
+
+      if (!vat.valid) {
         return {
           vatNumber: nbr,
-          message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+          message: vat.message,
           valid: false
         }
-    }
-  } catch (err) {
-    return {
-      vatNumber: nbr,
-      message: err.message,
-      valid: false
-    }
+      }
+
+      return {
+        vatNumber: getVatNumber(vat.siren),
+        valid: true
+      }
+
+    default:
+      return {
+        vatNumber: nbr,
+        message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+        valid: false
+      }
   }
 }
 
@@ -55,10 +59,17 @@ const checkAndConvertSiret = siret => {
   }
 
   if (total % 10 !== 0) {
-    throw new Error('The SIRET provided is not valid')
+    return {
+      valid: false,
+      message: 'The SIRET provided is not valid',
+      siren: siret
+    }
   }
 
-  return siret.substring(0, 9)
+  return {
+    valid: true,
+    siren: siret.substring(0, 9)
+  }
 }
 
 const getVatNumber = number => {

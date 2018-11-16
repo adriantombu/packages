@@ -3,16 +3,19 @@ const convertToVatNumber = require('./index')
 
 it('the processed SIRET should return a valid SIREN', () => {
   const siret = '81787166800023'
-  const siren = checkAndConvertSiret(siret)
+  const data = checkAndConvertSiret(siret)
 
-  expect(siren.length).toEqual(9)
-  expect(siren).toEqual('817871668')
+  expect(data.siren.length).toEqual(9)
+  expect(data.siren).toEqual('817871668')
 })
 
-it('a wrong SIRET should throw an error', () => {
+it('a wrong SIRET should return an error', () => {
   const siret = '81787166800021'
+  const data = checkAndConvertSiret(siret)
 
-  expect(() => checkAndConvertSiret(siret)).toThrow()
+  expect(data.siren).toBe(siret)
+  expect(data.valid).toBe(false)
+  expect(data.message).toBe('The SIRET provided is not valid')
 })
 
 it('the processed SIREN should return a valid VAT number', () => {
@@ -40,7 +43,7 @@ it('a wrong SIRET should get an error', () => {
   const vat = convertToVatNumber(siret)
 
   expect(vat).toEqual({
-    vatNumber: '81787166800021',
+    vatNumber: siret,
     message: 'The SIRET provided is not valid',
     valid: false
   })
