@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
   "repository": "https://github.com/adriantombu/array-shuffle",
   "main": "lib/index.js",
