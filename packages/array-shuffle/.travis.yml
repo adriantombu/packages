@@ -7,11 +7,11 @@ before_script:
   - docker build -t adriantombu/array-shuffle:dev .
 
 script:
-  - docker run -it adriantombu/array-shuffle:dev yarn lint
-  - docker run -it adriantombu/array-shuffle:dev yarn test
+  - docker run adriantombu/array-shuffle:dev yarn lint
+  - docker run adriantombu/array-shuffle:dev yarn test
 
 before_deploy:
-  - docker run -it -v /usr/app/lib adriantombu/array-shuffle:dev
+  - docker run -v /usr/app/lib adriantombu/array-shuffle:dev
 
 deploy:
   provider: npm
