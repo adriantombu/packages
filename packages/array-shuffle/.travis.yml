@@ -11,9 +11,10 @@ script:
   - docker run adriantombu/array-shuffle:dev yarn test
 
 before_deploy:
-  - docker run -v /usr/app/lib adriantombu/array-shuffle:dev
+  - docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/array-shuffle:dev
 
 deploy:
+  skip_cleanup: true
   provider: npm
   email: $NPM_EMAIL
   api_key: $NPM_API_KEY
