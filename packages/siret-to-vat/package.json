@@ -1,13 +1,16 @@
 {
   "name": "@adriantombu/siret-to-vat",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "This small library converts a French SIREN or SIRET to a valid VAT number.",
+  "keywords": [ "siret", "vat", "tva", "siren", "validation", "tax", "taxes", "business" ],
   "repository": "https://github.com/adriantombu/siret-to-vat",
   "main": "lib/index.js",
   "scripts": {
     "build": "minify ./src/index.js -d ./lib/",
     "lint": "standard ./src/* --verbose | snazzy",
-    "test": "jest"
+    "test": "jest --coverage",
+    "docker:build": "docker build -t adriantombu/siret-to-vat:dev .",
+    "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/siret-to-vat:dev"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
