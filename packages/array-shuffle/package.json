@@ -1,13 +1,15 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
   "repository": "https://github.com/adriantombu/array-shuffle",
   "main": "lib/index.js",
   "scripts": {
     "build": "minify ./src/index.js -d ./lib/",
     "lint": "standard ./src/* --verbose | snazzy",
-    "test": "jest"
+    "test": "jest --coverage",
+    "docker:build": "docker build -t adriantombu/array-shuffle:dev .",
+    "docker:watch": "docker run -v /usr/app/node_modules -v /usr/app/lib -v $(pwd):/usr/app adriantombu/array-shuffle:dev"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",

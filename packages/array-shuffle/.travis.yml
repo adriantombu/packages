@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker build -t adriantombu/array-shuffle:dev .
+
+script:
+  - docker run -it adriantombu/array-shuffle:dev yarn lint
+  - docker run -it adriantombu/array-shuffle:dev yarn test
+
+before_deploy:
+  - docker run -it -v /usr/app/lib adriantombu/array-shuffle:dev
+
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_API_KEY
+  on:
+    branch: master
