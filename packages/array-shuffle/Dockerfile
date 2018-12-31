@@ -7,5 +7,4 @@ RUN yarn install
 
 COPY ./ ./
 
-EXPOSE 1338
 CMD ["yarn", "build"]
