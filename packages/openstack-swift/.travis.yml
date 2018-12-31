@@ -1,0 +1,22 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker build -t adriantombu/openstack-swift:dev .
+
+script:
+  - docker run adriantombu/openstack-swift:dev yarn lint
+
+before_deploy:
+  - docker run --name openstack_swift adriantombu/openstack-swift:dev
+  - docker cp openstack_swift:usr/app/lib .
+
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_API_KEY
+  on:
+    branch: master
