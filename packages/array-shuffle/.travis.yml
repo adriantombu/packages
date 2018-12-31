@@ -11,7 +11,8 @@ script:
   - docker run adriantombu/array-shuffle:dev yarn test
 
 before_deploy:
-  - docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/array-shuffle:dev
+  - docker run --name array_shuffle adriantombu/array-shuffle:dev
+  - docker cp array_shuffle:usr/app/lib .
 
 deploy:
   skip_cleanup: true
