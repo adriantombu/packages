@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
   "keywords": [ "array", "shuffle", "random", "arr", "sort", "rand", "no-dependencies", "light" ],
   "repository": "https://github.com/adriantombu/array-shuffle",

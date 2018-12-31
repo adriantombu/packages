@@ -7,13 +7,6 @@ it('a wrong type should return an error', () => {
   expect(() => arrayShuffle("I'm a string")).toThrow()
 })
 
-it('the processed array should not be the same as the original', () => {
-  const myRandomArray = [ 'I', 'believe', 'I', 'can', 'fly' ]
-  const myShuffledArray = arrayShuffle(myRandomArray)
-
-  expect(myShuffledArray).not.toEqual(myRandomArray)
-})
-
 it('the processed array should have the same length as the original', () => {
   const myRandomArray = [ 'I', 'believe', 'I', 'can', 'fly' ]
   const myShuffledArray = arrayShuffle(myRandomArray)
