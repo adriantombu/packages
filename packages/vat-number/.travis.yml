@@ -1,0 +1,23 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker build -t adriantombu/vat-number:dev .
+
+script:
+  - docker run adriantombu/vat-number:dev yarn lint
+  - docker run adriantombu/vat-number:dev yarn test
+
+before_deploy:
+  - docker run --name vat_number adriantombu/vat-number:dev
+  - docker cp vat_number:usr/app/lib .
+
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_API_KEY
+  on:
+    branch: master
