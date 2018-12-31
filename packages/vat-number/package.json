@@ -1,15 +1,16 @@
 {
   "name": "@adriantombu/vat-number",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A tool to validate an european VAT number and get the related business data with the VIES API",
+  "keywords": [ "vat", "tva", "validation", "tax", "taxes", "business" ],
   "repository": "https://github.com/adriantombu/vat-number",
   "main": "lib/index.js",
   "scripts": {
     "build": "minify ./src/index.js -d ./lib/",
     "lint": "standard ./src/* --verbose | snazzy",
     "test": "jest --coverage",
-    "docker:build": "docker build -t adriantombu/array-shuffle:dev .",
-    "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/array-shuffle:dev"
+    "docker:build": "docker build -t adriantombu/vat-number:dev .",
+    "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/vat-number:dev"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
