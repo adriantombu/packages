@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/vat-number",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A tool to validate an european VAT number and get the related business data with the VIES API",
   "keywords": [ "vat", "tva", "validation", "tax", "taxes", "business" ],
   "repository": "https://github.com/adriantombu/vat-number",
@@ -19,12 +19,12 @@
   },
   "devDependencies": {
     "babel-minify": "^0.5.0",
-    "jest": "^23.6.0",
+    "jest": "^24.5.0",
     "snazzy": "^8.0.0",
     "standard": "^12.0.1"
   },
   "dependencies": {
-    "soap": "^0.25.0"
+    "soap": "^0.26.0"
   },
   "jest": {
     "verbose": true,
