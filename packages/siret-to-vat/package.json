@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/siret-to-vat",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "This small library converts a French SIREN or SIRET to a valid VAT number.",
   "keywords": [ "siret", "vat", "tva", "siren", "validation", "tax", "taxes", "business" ],
   "repository": "https://github.com/adriantombu/siret-to-vat",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "babel-minify": "^0.5.0",
-    "jest": "^23.6.0",
+    "jest": "^24.5.0",
     "snazzy": "^8.0.0",
     "standard": "^12.0.1"
   },
