@@ -86,7 +86,7 @@ class Swift {
     const files = await this.getContainerFiles()
 
     try {
-      for (let file of files) {
+      for (const file of files) {
         await this.removeFile(file)
       }
     } catch (err) {
