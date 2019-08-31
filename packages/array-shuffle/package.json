@@ -1,13 +1,23 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
-  "keywords": [ "array", "shuffle", "random", "arr", "sort", "rand", "no-dependencies", "light" ],
+  "keywords": [
+    "array",
+    "shuffle",
+    "random",
+    "arr",
+    "sort",
+    "rand",
+    "no-dependencies",
+    "light"
+  ],
   "repository": "https://github.com/adriantombu/array-shuffle",
   "main": "lib/index.js",
   "scripts": {
     "build": "minify ./src/index.js -d ./lib/",
     "lint": "standard ./src/* --verbose | snazzy",
+    "lint:fix": "standard --fix",
     "test": "jest --coverage",
     "docker:build": "docker build -t adriantombu/array-shuffle:dev .",
     "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/array-shuffle:dev"
@@ -19,9 +29,11 @@
   },
   "devDependencies": {
     "babel-minify": "^0.5.0",
+    "husky": "^3.0.4",
     "jest": "^24.5.0",
+    "lint-staged": "^9.2.5",
     "snazzy": "^8.0.0",
-    "standard": "^12.0.1"
+    "standard": "^13.1.0"
   },
   "jest": {
     "verbose": true,
@@ -35,6 +47,17 @@
     "globals": [
       "it",
       "expect"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "standard --fix",
+      "git add"
     ]
   }
 }
