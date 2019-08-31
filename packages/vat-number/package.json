@@ -1,13 +1,21 @@
 {
   "name": "@adriantombu/vat-number",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A tool to validate an european VAT number and get the related business data with the VIES API",
-  "keywords": [ "vat", "tva", "validation", "tax", "taxes", "business" ],
+  "keywords": [
+    "vat",
+    "tva",
+    "validation",
+    "tax",
+    "taxes",
+    "business"
+  ],
   "repository": "https://github.com/adriantombu/vat-number",
   "main": "lib/index.js",
   "scripts": {
     "build": "minify ./src/index.js -d ./lib/",
     "lint": "standard ./src/* --verbose | snazzy",
+    "lint:fix": "standard --fix",
     "test": "jest --coverage",
     "docker:build": "docker build -t adriantombu/vat-number:dev .",
     "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/vat-number:dev"
@@ -19,12 +27,14 @@
   },
   "devDependencies": {
     "babel-minify": "^0.5.0",
-    "jest": "^24.5.0",
+    "jest": "^24.8.0",
     "snazzy": "^8.0.0",
-    "standard": "^12.0.1"
+    "standard": "^13.1.0"
   },
   "dependencies": {
-    "soap": "^0.26.0"
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.5",
+    "soap": "^0.29.0"
   },
   "jest": {
     "verbose": true,
@@ -39,6 +49,17 @@
       "it",
       "expect",
       "jest"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "standard --fix",
+      "git add"
     ]
   }
 }
