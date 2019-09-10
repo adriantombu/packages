@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/openstack-swift",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple wrapper to easily use the Openstack Swift storage provider",
   "keywords": [
     "openstack",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "babel-minify": "^0.5.0",
     "snazzy": "^8.0.0",
-    "standard": "^13.1.0"
+    "standard": "^14.1.0"
   },
   "dependencies": {
     "es6-promisify": "^6.0.0",
