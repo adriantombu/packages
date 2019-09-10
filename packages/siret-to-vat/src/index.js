@@ -18,7 +18,7 @@ module.exports = nbr => {
         valid: true
       }
 
-    case 14:
+    case 14: {
       const vat = checkAndConvertSiret(number)
 
       if (!vat.valid) {
@@ -33,6 +33,7 @@ module.exports = nbr => {
         vatNumber: getVatNumber(vat.siren),
         valid: true
       }
+    }
 
     default:
       return {
