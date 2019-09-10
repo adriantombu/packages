@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
   "keywords": [
     "array",
@@ -33,7 +33,7 @@
     "jest": "^24.5.0",
     "lint-staged": "^9.2.5",
     "snazzy": "^8.0.0",
-    "standard": "^13.1.0"
+    "standard": "^14.1.0"
   },
   "jest": {
     "verbose": true,
