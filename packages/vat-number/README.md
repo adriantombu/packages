@@ -1,7 +1,7 @@
 EUROPEAN VAT NUMBER
 ===================
 
-[![npm version](https://badge.fury.io/js/%40adriantombu%2Fvat-number.svg)](https://badge.fury.io/js/%40adriantombu%2Fvat-number) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![npm version](https://badge.fury.io/js/%40adriantombu%2Fvat-number.svg)](https://badge.fury.io/js/%40adriantombu%2Fvat-number) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
 
 This library validates an european VAT number and gets the related business data through the VIES API
 
