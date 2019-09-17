@@ -1,6 +1,6 @@
 # Openstack Swift storage
 
-[![npm version](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift.svg)](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![npm version](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift.svg)](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
 
 This library is a simple wrapper over [pkgcloud](https://github.com/pkgcloud/pkgcloud) to be able to use the [Swift storage provider](https://docs.openstack.org/swift/latest/) from Openstack easily.
 
