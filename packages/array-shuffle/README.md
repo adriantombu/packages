@@ -1,7 +1,7 @@
 Yet Another Array Shuffle Package
 =================================
 
-[![npm version](https://badge.fury.io/js/%40adriantombu%2Farray-shuffle.svg)](https://badge.fury.io/js/%40adriantombu%2Farray-shuffle) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![npm version](https://badge.fury.io/js/%40adriantombu%2Farray-shuffle.svg)](https://badge.fury.io/js/%40adriantombu%2Farray-shuffle) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
 
 A package that... well... shuffles the values of an array. Yup. That's all. All in 206 bytes of code.
 
