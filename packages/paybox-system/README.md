@@ -1,4 +1,4 @@
-# Paybox System [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
+# Paybox System [![npm version](https://badge.fury.io/js/%40adriantombu%2Fpaybox-system.svg)](https://badge.fury.io/js/%40adriantombu%2Fpaybox-system) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
 
 This library is a simple implementation of the Paybox System payment solution
 
