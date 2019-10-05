@@ -1,22 +1,18 @@
-sudo: required
-
-services:
-  - docker
-
-before_script:
-  - docker build -t adriantombu/openstack-swift:dev .
+language: node_js
+node_js:
+  - 10
+  - 12
 
 script:
-  - docker run adriantombu/openstack-swift:dev yarn lint
+  - yarn test
 
 before_deploy:
-  - docker run --name openstack_swift adriantombu/openstack-swift:dev
-  - docker cp openstack_swift:usr/app/lib .
+  - yarn build
 
 deploy:
-  skip_cleanup: true
   provider: npm
   email: $NPM_EMAIL
   api_key: $NPM_API_KEY
+  skip_cleanup: true
   on:
     branch: master

@@ -1,6 +1,6 @@
 # Openstack Swift storage
 
-[![npm version](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift.svg)](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
+[![npm version](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift.svg)](https://badge.fury.io/js/%40adriantombu%2Fopenstack-swift) [![Buy me a tree !](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
 
 This library is a simple wrapper over [pkgcloud](https://github.com/pkgcloud/pkgcloud) to be able to use the [Swift storage provider](https://docs.openstack.org/swift/latest/) from Openstack easily.
 
@@ -9,29 +9,23 @@ This library is a simple wrapper over [pkgcloud](https://github.com/pkgcloud/pkg
 ### How to install it
 
 * Install the package from npm with `yarn add @adriantombu/openstack-swift`
-* Fill in the following environnement variables
-
-```
-OPENSTACK_SWIFT_PROVIDER
-OPENSTACK_SWIFT_USERNAME
-OPENSTACK_SWIFT_PASSWORD
-OPENSTACK_SWIFT_AUTHURL
-OPENSTACK_SWIFT_REGION
-OPENSTACK_SWIFT_CONTAINER
-```
-
 * Instanciate the library in your script
 
 ```
-const getenv = require('getenv')
-const swift = require('../src/providers/swift').container(
-  getenv('OPENSTACK_SWIFT_CONTAINER')
+const swift = require('@adriantombu/openstack-swift').container(
+  container: 'swift-container',
+  username: 'swift-username',
+  password: 'swift-password',
+  authUrl: 'swift-auth-url,
+  region: 'swift-region'
 )
 ```
+
+You can then find all the available methods in the pkgcloud documentation under the [Storage section](https://github.com/pkgcloud/pkgcloud#storage).
 
 ### How to contribute
 
 * Clone the repository `git clone git@github.com:adriantombu/openstack-swift.git`
 * Install the packages with `yarn install`
-* Modify the `src/index.js` file
+* Modify the `src/index.ts` file
 * When everything's done, you can send a PR \o/

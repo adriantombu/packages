@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/openstack-swift",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "A simple wrapper to easily use the Openstack Swift storage provider",
   "keywords": [
     "openstack",
@@ -12,25 +12,24 @@
   ],
   "repository": "https://github.com/adriantombu/openstack-swift",
   "main": "lib/index.js",
+  "types": "lib/main.d.ts",
   "scripts": {
-    "lint": "standard ./src/index.js --verbose | snazzy",
-    "lint:fix": "standard --fix",
-    "build": "yarn lint && minify src -d lib",
-    "docker:build": "docker build -t adriantombu/openstack-swift:dev .",
-    "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/openstack-swift:dev"
+    "build": "tsc --declaration",
+    "test": "echo \"I'm lazy, I did not test this package\" && exit 0",
+    "clean": "rimraf ./lib",
+    "watch": "tsc -p . --watch"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
   "devDependencies": {
-    "babel-minify": "^0.5.0",
-    "snazzy": "^8.0.0",
-    "standard": "^14.1.0"
+    "@types/pkgcloud": "^1.7.3",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.6.3"
   },
   "dependencies": {
-    "es6-promisify": "^6.0.0",
-    "getenv": "^0.7.0",
-    "husky": "^3.0.4",
-    "lint-staged": "^9.2.5",
     "pkgcloud": "^2.1.1"
   },
   "husky": {
@@ -40,7 +39,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "standard --fix",
+      "prettier --write",
       "git add"
     ]
   }
