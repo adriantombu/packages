@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = arr => {
+export default (arr: any[]): any[] => {
   if (!Array.isArray(arr)) {
     throw new Error(`Got a parameter of type ${typeof arr} instead of an array`)
   }

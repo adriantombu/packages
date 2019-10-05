@@ -1,6 +1,7 @@
-const arrayShuffle = require('./index')
+import arrayShuffle from './index'
 
 it('a wrong type should return an error', () => {
+  expect(() => arrayShuffle()).toThrow()
   expect(() => arrayShuffle({ name: 'Definitely not an array' })).toThrow()
   expect(() => arrayShuffle(null)).toThrow()
   expect(() => arrayShuffle(undefined)).toThrow()

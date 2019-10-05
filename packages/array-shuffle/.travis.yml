@@ -1,23 +1,18 @@
-sudo: required
-
-services:
-  - docker
-
-before_script:
-  - docker build -t adriantombu/array-shuffle:dev .
+language: node_js
+node_js:
+  - 10
+  - 12
 
 script:
-  - docker run adriantombu/array-shuffle:dev yarn lint
-  - docker run adriantombu/array-shuffle:dev yarn test
+  - yarn test
 
 before_deploy:
-  - docker run --name array_shuffle adriantombu/array-shuffle:dev
-  - docker cp array_shuffle:usr/app/lib .
+  - yarn build
 
 deploy:
-  skip_cleanup: true
   provider: npm
   email: $NPM_EMAIL
   api_key: $NPM_API_KEY
+  skip_cleanup: true
   on:
     branch: master

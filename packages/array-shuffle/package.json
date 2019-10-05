@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "1.0.13",
+  "version": "2.0.0",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
   "keywords": [
     "array",
@@ -14,13 +14,13 @@
   ],
   "repository": "https://github.com/adriantombu/array-shuffle",
   "main": "lib/index.js",
+  "types": "lib/main.d.ts",
   "scripts": {
-    "build": "minify ./src/index.js -d ./lib/",
-    "lint": "standard ./src/* --verbose | snazzy",
-    "lint:fix": "standard --fix",
+    "build": "tsc --declaration",
     "test": "jest --coverage",
-    "docker:build": "docker build -t adriantombu/array-shuffle:dev .",
-    "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/array-shuffle:dev"
+    "clean": "rimraf ./coverage ./lib",
+    "watch": "tsc -p . --watch",
+    "watch:test": "jest --watchAll"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
@@ -28,26 +28,14 @@
     "access": "public"
   },
   "devDependencies": {
-    "babel-minify": "^0.5.0",
+    "@types/jest": "^24.0.18",
     "husky": "^3.0.4",
     "jest": "^24.5.0",
     "lint-staged": "^9.2.5",
-    "snazzy": "^8.0.0",
-    "standard": "^14.1.0"
-  },
-  "jest": {
-    "verbose": true,
-    "collectCoverage": true,
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
-  "standard": {
-    "globals": [
-      "it",
-      "expect"
-    ]
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "husky": {
     "hooks": {
@@ -56,7 +44,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "standard --fix",
+      "prettier --write",
       "git add"
     ]
   }
