@@ -1,8 +1,6 @@
-'use strict'
+import * as soap from 'soap'
 
-const soap = require('soap')
-
-module.exports = async vatNumber => {
+export default async (vatNumber: string): Promise<Result> => {
   const apiUrl = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl'
   const args = {
     countryCode: vatNumber.substring(0, 2),
@@ -28,4 +26,14 @@ module.exports = async vatNumber => {
       valid: false
     }
   }
+}
+
+interface Result {
+  country?: string
+  vatNumber?: string,
+  fullVatNumber: string,
+  message?: string,
+  name?: string,
+  address?: string,
+  valid: boolean
 }

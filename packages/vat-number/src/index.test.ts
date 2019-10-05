@@ -1,4 +1,4 @@
-const getVatNumberInfos = require('./index')
+import getVatNumberInfos from './index'
 
 jest.setTimeout(30000)
 

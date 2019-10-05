@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/vat-number",
-  "version": "1.1.7",
+  "version": "2.0.0",
   "description": "A tool to validate an european VAT number and get the related business data with the VIES API",
   "keywords": [
     "vat",
@@ -12,13 +12,13 @@
   ],
   "repository": "https://github.com/adriantombu/vat-number",
   "main": "lib/index.js",
+  "types": "lib/main.d.ts",
   "scripts": {
-    "build": "minify ./src/index.js -d ./lib/",
-    "lint": "standard ./src/* --verbose | snazzy",
-    "lint:fix": "standard --fix",
+    "build": "tsc --declaration",
     "test": "jest --coverage",
-    "docker:build": "docker build -t adriantombu/vat-number:dev .",
-    "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/vat-number:dev"
+    "clean": "rimraf ./coverage ./lib",
+    "watch": "tsc -p . --watch",
+    "watch:test": "jest --watchAll"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
@@ -26,30 +26,18 @@
     "access": "public"
   },
   "devDependencies": {
-    "babel-minify": "^0.5.0",
-    "jest": "^24.8.0",
-    "snazzy": "^8.0.0",
-    "standard": "^14.1.0"
+    "@types/bluebird": "^3.5.27",
+    "@types/jest": "^24.0.18",
+    "husky": "^3.0.8",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "dependencies": {
-    "husky": "^3.0.4",
-    "lint-staged": "^9.2.5",
     "soap": "^0.29.0"
-  },
-  "jest": {
-    "verbose": true,
-    "collectCoverage": true,
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
-  "standard": {
-    "globals": [
-      "it",
-      "expect",
-      "jest"
-    ]
   },
   "husky": {
     "hooks": {
@@ -58,7 +46,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "standard --fix",
+      "prettier --write",
       "git add"
     ]
   }
