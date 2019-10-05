@@ -1,5 +1,4 @@
-const { checkAndConvertSiret, getVatNumber } = require('./index')
-const convertToVatNumber = require('./index')
+import convertToVatNumber, { checkAndConvertSiret, getVatNumber } from './index'
 
 it('the processed SIRET should return a valid SIREN', () => {
   const siret = '81787166800023'
@@ -27,11 +26,13 @@ it('the processed SIREN should return a valid VAT number', () => {
 })
 
 it('a wrong type should return an error', () => {
+  const emptyValue = convertToVatNumber()
   const objectValue = convertToVatNumber({ name: 'I am an object' })
   const nullValue = convertToVatNumber(null)
   const undefinedValue = convertToVatNumber(undefined)
   const arrayValue = convertToVatNumber(['I', 'am', 'an', 'array'])
 
+  expect(emptyValue.valid).toBe(false)
   expect(objectValue.valid).toBe(false)
   expect(nullValue.valid).toBe(false)
   expect(undefinedValue.valid).toBe(false)
@@ -55,6 +56,7 @@ it('a valid SIRET should get a valid VAT number', () => {
 
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
+    message: '',
     valid: true
   })
 })
@@ -65,6 +67,7 @@ it('a valid spaced SIRET should get a valid VAT number', () => {
 
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
+    message: '',
     valid: true
   })
 })
@@ -75,6 +78,7 @@ it('a valid SIREN should get a valid VAT number', () => {
 
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
+    message: '',
     valid: true
   })
 })
@@ -85,6 +89,7 @@ it('a valid spaced SIREN should get a valid VAT number', () => {
 
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
+    message: '',
     valid: true
   })
 })

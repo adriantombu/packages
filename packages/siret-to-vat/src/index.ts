@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = nbr => {
+export default (nbr: number | string) => {
   if (!['string', 'number'].includes(typeof nbr)) {
     return {
       vatNumber: nbr,
@@ -15,6 +13,7 @@ module.exports = nbr => {
     case 9:
       return {
         vatNumber: getVatNumber(number),
+        message: '',
         valid: true
       }
 
@@ -31,6 +30,7 @@ module.exports = nbr => {
 
       return {
         vatNumber: getVatNumber(vat.siren),
+        message: '',
         valid: true
       }
     }
@@ -44,7 +44,7 @@ module.exports = nbr => {
   }
 }
 
-const checkAndConvertSiret = siret => {
+export function checkAndConvertSiret (siret: string) {
   let total = 0
   let even = false
 
@@ -69,15 +69,13 @@ const checkAndConvertSiret = siret => {
 
   return {
     valid: true,
+    message: '',
     siren: siret.substring(0, 9)
   }
 }
 
-const getVatNumber = number => {
-  const validation = (12 + 3 * (number % 97)) % 97
+export function getVatNumber (number: string): string {
+  const validation = (12 + 3 * (parseInt(number, 10) % 97)) % 97
 
   return `FR${validation}${number}`
 }
-
-module.exports.checkAndConvertSiret = checkAndConvertSiret
-module.exports.getVatNumber = getVatNumber

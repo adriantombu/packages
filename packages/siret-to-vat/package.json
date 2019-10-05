@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/siret-to-vat",
-  "version": "2.0.8",
+  "version": "3.0.0",
   "description": "This small library converts a French SIREN or SIRET to a valid VAT number.",
   "keywords": [
     "siret",
@@ -15,12 +15,11 @@
   "repository": "https://github.com/adriantombu/siret-to-vat",
   "main": "lib/index.js",
   "scripts": {
-    "build": "minify ./src/index.js -d ./lib/",
-    "lint": "standard ./src/* --verbose | snazzy",
-    "lint:fix": "standard --fix",
+    "build": "tsc --declaration",
     "test": "jest --coverage",
-    "docker:build": "docker build -t adriantombu/siret-to-vat:dev .",
-    "docker:watch": "docker run -v /usr/app/lib -v /usr/app/node_modules -v $(pwd):/usr/app adriantombu/siret-to-vat:dev"
+    "clean": "rimraf ./coverage ./lib",
+    "watch": "tsc -p . --watch",
+    "watch:test": "jest --watchAll"
   },
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
@@ -28,26 +27,14 @@
     "access": "public"
   },
   "devDependencies": {
-    "babel-minify": "^0.5.0",
-    "husky": "^3.0.4",
+    "@types/jest": "^24.0.18",
+    "husky": "^3.0.8",
     "jest": "^24.5.0",
-    "lint-staged": "^9.2.5",
-    "snazzy": "^8.0.0",
-    "standard": "^14.1.0"
-  },
-  "jest": {
-    "verbose": true,
-    "collectCoverage": true,
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
-  "standard": {
-    "globals": [
-      "it",
-      "expect"
-    ]
+    "lint-staged": "^9.4.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "husky": {
     "hooks": {
@@ -56,7 +43,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "standard --fix",
+      "prettier --write",
       "git add"
     ]
   }

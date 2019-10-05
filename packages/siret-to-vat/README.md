@@ -1,7 +1,7 @@
 SIREN/SIREN to VAT number
 =========================
 
-[![npm version](https://badge.fury.io/js/%40adriantombu%2Fsiret-to-vat.svg)](https://badge.fury.io/js/%40adriantombu%2Fsiret-to-vat) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
+[![npm version](https://badge.fury.io/js/%40adriantombu%2Fsiret-to-vat.svg)](https://badge.fury.io/js/%40adriantombu%2Fsiret-to-vat) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
 
 This small library converts a French SIREN or SIRET to a valid VAT number. You can then use the [vat number library](https://github.com/adriantombu/vat-number) to check it against the official European records.
 
@@ -41,5 +41,5 @@ const vat = convertToVatNumber(siren)
 
 * Clone the repository `git clone git@github.com:adriantombu/siret-to-vat.git`
 * Install the packages with `yarn install`
-* Modify the `src/index.js` file
+* Modify the `src/index.ts` file
 * When everything's done, you can send a PR \o/
