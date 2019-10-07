@@ -4,8 +4,8 @@
   "description": "Check the status of your builds on travis-ci.com",
   "scripts": {
     "test": "echo \"No tests... yet\" && exit 0",
-		"postinstall": "alfy-init",
-		"preuninstall": "alfy-cleanup"
+		"postinstall": "if [ -z \"$TRAVIS_BRANCH\" ]; then alfy-init; fi",
+		"preuninstall": "if [ -z \"$TRAVIS_BRANCH\" ]; then alfy-cleanup; fi"
   },
   "repository": {
     "type": "git",
