@@ -1,0 +1,28 @@
+{
+  "name": "@adriantombu/alfred-travis-ci",
+  "version": "1.0.0",
+  "description": "Check your builds on travis-ci.com",
+  "scripts": {
+    "test": "echo \"No tests... yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriantombu/alfred-travis-ci.git"
+  },
+  "keywords": [
+    "alfred",
+    "productivity",
+    "travis",
+    "ci"
+  ],
+  "author": "Adrian Tombu <adrian@otso.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adriantombu/alfred-travis-ci/issues"
+  },
+  "homepage": "https://github.com/adriantombu/alfred-travis-ci#readme",
+  "dependencies": {
+    "alfy": "^0.9.1",
+    "moment": "^2.24.0"
+  }
+}
