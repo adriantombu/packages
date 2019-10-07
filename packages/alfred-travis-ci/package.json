@@ -1,9 +1,11 @@
 {
   "name": "@adriantombu/alfred-travis-ci",
   "version": "1.0.0",
-  "description": "Check your builds on travis-ci.com",
+  "description": "Check the status of your builds on travis-ci.com",
   "scripts": {
-    "test": "echo \"No tests... yet\" && exit 0"
+    "test": "echo \"No tests... yet\" && exit 0",
+		"postinstall": "alfy-init",
+		"preuninstall": "alfy-cleanup"
   },
   "repository": {
     "type": "git",
@@ -11,6 +13,9 @@
   },
   "keywords": [
     "alfred",
+    "automation",
+    "mac",
+    "osx",
     "productivity",
     "travis",
     "ci"
