@@ -29,5 +29,8 @@
   "dependencies": {
     "alfy": "^0.9.1",
     "moment": "^2.24.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
 }
