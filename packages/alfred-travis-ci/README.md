@@ -1,6 +1,6 @@
 # alfred-travis-ci [![npm version](https://badge.fury.io/js/%40adriantombu%2Falfred-travis-ci.svg)](https://badge.fury.io/js/%40adriantombu%2Falfred-travis-ci) [![](https://img.shields.io/badge/Buy%20me%20a%20tree-%F0%9F%8C%B3-lightgreen)](https://offset.earth/adrian)
 
-> [Alfred 3](https://www.alfredapp.com) workflow to check your Travis builds
+> [Alfred 4](https://www.alfredapp.com) workflow to check your Travis builds
 
 ![](screenshot.png)
 
