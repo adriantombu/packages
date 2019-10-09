@@ -1,6 +1,10 @@
 const alfy = require('alfy');
 const token = alfy.config.get('token');
 
+if (!token) {
+	return alfy.output([{ title: 'API Token not found', subtitle: "Please run 'travis-auth TOKEN' first" }]);
+}
+
 // TODO: handle pagination (results limited to 100)
 const data = await alfy.fetch('https://api.travis-ci.com/repos', {
 	headers: {

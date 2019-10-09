@@ -2,7 +2,7 @@ const alfy = require('alfy');
 const moment = require('moment');
 
 const token = alfy.config.get('token');
-const slug = alfy.input;
+const slug = alfy.input || '';
 
 const data = await alfy.fetch(`https://api.travis-ci.com/repo/${slug.replace('/', '%2F')}/builds`, {
 	headers: {

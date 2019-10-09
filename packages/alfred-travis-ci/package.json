@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/alfred-travis-ci",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check the status of your builds on travis-ci.com",
   "scripts": {
     "test": "echo \"No tests... yet\" && exit 0",
