@@ -22,7 +22,6 @@ for (const build of data.builds) {
 		: `From ${moment(build.started_at).format('lll')} to ${moment(build.finished_at).format('lll')} (${build.duration} seconds)`;
 
 	builds.push({
-		uid: build.id,
 		title: `#${build.id} ${slug}:${build.branch.name}`,
 		subtitle,
 		icon: {
