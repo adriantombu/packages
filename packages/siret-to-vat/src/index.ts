@@ -1,4 +1,4 @@
-export default (nbr: number | string) => {
+export function convertToVatNumber (nbr: number | string) {
   if (!['string', 'number'].includes(typeof nbr)) {
     return {
       vatNumber: nbr,

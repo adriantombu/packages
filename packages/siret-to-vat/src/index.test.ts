@@ -1,4 +1,4 @@
-import convertToVatNumber, { checkAndConvertSiret, getVatNumber } from './index'
+import { convertToVatNumber, checkAndConvertSiret, getVatNumber } from './index'
 
 it('the processed SIRET should return a valid SIREN', () => {
   const siret = '81787166800023'

@@ -11,7 +11,7 @@ This small library converts a French SIREN or SIRET to a valid VAT number. You c
 * And then import it in your script
 
 ```
-const convertToVatNumber = require('@adriantombu/siret-to-vat')
+const { convertToVatNumber } = require('@adriantombu/siret-to-vat')
 
 const siren = 817871668
 const vat = convertToVatNumber(siren)
@@ -25,7 +25,7 @@ const vat = convertToVatNumber(siren)
 In case of an invalid number, you will receive the following result, with the value `valid` set to `false`
 
 ```
-const convertToVatNumber = require('@adriantombu/siret-to-vat')
+const { convertToVatNumber } = require('@adriantombu/siret-to-vat')
 
 const siren = 123456'
 const vat = convertToVatNumber(siren)
