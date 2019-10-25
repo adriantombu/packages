@@ -11,7 +11,7 @@ This library validates an european VAT number and gets the related business data
 * And then import it in your script
 
 ```
-const getVatNumberInfos = require('@adriantombu/vat-number')
+const { getVatNumberInfos } = require('@adriantombu/vat-number')
 
 const vatNumber = 'FR16817871668';
 const checkedVat = await getVatNumberInfos(vatNumber)
@@ -29,7 +29,7 @@ const checkedVat = await getVatNumberInfos(vatNumber)
 In case of an invalid VAT number, you will receive the following result, with the value `valid` set to `false`
 
 ```
-const getVatNumberInfos = require('@adriantombu/vat-number')
+const { getVatNumberInfos } = require('@adriantombu/vat-number')
 
 const vatNumber = 'FRXXXXXXXXXX8';
 const checkedVat = await getVatNumberInfos(vatNumber)

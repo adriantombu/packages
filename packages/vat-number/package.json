@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/vat-number",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A tool to validate an european VAT number and get the related business data with the VIES API",
   "keywords": [
     "vat",

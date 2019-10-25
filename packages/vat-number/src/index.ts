@@ -1,6 +1,6 @@
 import * as soap from 'soap'
 
-export default async (vatNumber: string): Promise<Result> => {
+export async function getVatNumberInfos(vatNumber: string): Promise<Result> {
   const apiUrl = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl'
   const args = {
     countryCode: vatNumber.substring(0, 2),
