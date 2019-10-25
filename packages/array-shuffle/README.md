@@ -11,7 +11,7 @@ A package that... well... shuffles the values of an array. Yup. That's all. All 
 * And then import it in your script
 
 ```
-const arrayShuffle = require('@adriantombu/array-shuffle')
+const { arrayShuffle } = require('@adriantombu/array-shuffle')
 
 const myRandomArray = [ "I", "believe", "I", "can", "fly"]
 const myShuffledArray = arrayShuffle(myRandomArray)

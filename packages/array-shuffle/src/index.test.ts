@@ -1,4 +1,4 @@
-import arrayShuffle from './index'
+import { arrayShuffle } from './index'
 
 it('a wrong type should return an error', () => {
   expect(() => arrayShuffle()).toThrow()

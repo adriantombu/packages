@@ -1,4 +1,4 @@
-export default (arr: any[]): any[] => {
+export function arrayShuffle (arr: any[]): any[] {
   if (!Array.isArray(arr)) {
     throw new Error(`Got a parameter of type ${typeof arr} instead of an array`)
   }
