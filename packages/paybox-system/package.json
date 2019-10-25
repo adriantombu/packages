@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/paybox-system",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple implementation of the Paybox System payment solution",
   "keywords": [
     "paybox",
@@ -9,7 +9,7 @@
     "gateway",
     "e-commerce"
   ],
-  "main": "lib/index.js",
+  "main": "lib/paybox.js",
   "repository": "https://github.com/adriantombu/paybox-direct",
   "author": "Adrian Tombu <adrian@otso.fr>",
   "license": "MIT",

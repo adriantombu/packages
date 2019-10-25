@@ -7,7 +7,7 @@ import { Document, Params, Request, Result, FormElement } from './types'
 
 export * from './types'
 
-export default class Paybox implements Document {
+export class Paybox implements Document {
   request: Request
   sandbox: boolean
 

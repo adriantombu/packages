@@ -1,4 +1,4 @@
-import Paybox from './paybox'
+import { Paybox } from './paybox'
 import axios from 'axios'
 
 test('should get an error from the provided code', () => {

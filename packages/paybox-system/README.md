@@ -10,7 +10,7 @@ This library is a simple implementation of the Paybox System payment solution
 ### Get the payment form button
 
 ```
-const Paybox = require('@adriantombu/paybox-system')
+const { Paybox } = require('@adriantombu/paybox-system')
 
 const payment = Paybox.create({
     payboxSite: '1999888',
@@ -60,7 +60,7 @@ Note: It is better to use the `form` string instead of the `elements` array beca
 Always use the `payboxRepondreA` to check the transaction. This is a url directly called by Paybox from server to server that returns the result of the transaction.
 
 ```
-const Paybox = require('@adriantombu/paybox-system')
+const { Paybox } = require('@adriantombu/paybox-system')
 
 // This is an exemple of a POST body that you retrieve from the Paybox call
 const body = {
