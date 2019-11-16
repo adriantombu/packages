@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/vat-number",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A tool to validate an european VAT number and get the related business data with the VIES API",
   "keywords": [
     "vat",
@@ -37,7 +37,7 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "soap": "^0.29.0"
+    "soap": "^0.30.0"
   },
   "husky": {
     "hooks": {
