@@ -12,7 +12,7 @@ This library is a simple wrapper over [pkgcloud](https://github.com/pkgcloud/pkg
 * Instanciate the library in your script
 
 ```
-const swift = require('@adriantombu/openstack-swift').container(
+const swift = require('@adriantombu/openstack-swift').default.container(
   container: 'swift-container',
   username: 'swift-username',
   password: 'swift-password',
