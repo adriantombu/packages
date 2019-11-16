@@ -1,8 +1,9 @@
 {
   "name": "@adriantombu/alfred-travis-ci",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Check the status of your builds on travis-ci.com",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"No tests... yet\" && exit 0",
     "postinstall": "if [ -z \"$GITHUB_WORKFLOW\" ]; then alfy-init; fi",
     "preuninstall": "if [ -z \"$GITHUB_WORKFLOW\" ]; then alfy-cleanup; fi"
@@ -30,7 +31,24 @@
     "alfy": "^0.9.1",
     "moment": "^2.24.0"
   },
+  "devDependencies": {
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
+  },
   "publishConfig": {
     "access": "public"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
