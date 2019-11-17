@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
   "keywords": [
     "array",
@@ -43,7 +43,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/**/*.ts": [
       "prettier --write",
       "git add"
     ]

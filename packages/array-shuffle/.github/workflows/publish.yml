@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12
+        registry-url: https://registry.npmjs.org/
 
     - name: Cache node modules
       uses: actions/cache@v1
@@ -30,15 +34,7 @@ jobs:
     - name: Test
       run: yarn test
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
+    - name: Deploy
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
