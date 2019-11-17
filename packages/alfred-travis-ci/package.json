@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/alfred-travis-ci",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Check the status of your builds on travis-ci.com",
   "scripts": {
     "build": "tsc",
