@@ -1,9 +1,9 @@
-export function convertToVatNumber (nbr: number | string) {
+export function convertToVatNumber(nbr: number | string) {
   if (!['string', 'number'].includes(typeof nbr)) {
     return {
       vatNumber: nbr,
       message: `Expected a number or string number but got a ${typeof nbr}`,
-      valid: false
+      valid: false,
     }
   }
 
@@ -14,7 +14,7 @@ export function convertToVatNumber (nbr: number | string) {
       return {
         vatNumber: getVatNumber(number),
         message: '',
-        valid: true
+        valid: true,
       }
 
     case 14: {
@@ -24,27 +24,28 @@ export function convertToVatNumber (nbr: number | string) {
         return {
           vatNumber: nbr,
           message: vat.message,
-          valid: false
+          valid: false,
         }
       }
 
       return {
         vatNumber: getVatNumber(vat.siren),
         message: '',
-        valid: true
+        valid: true,
       }
     }
 
     default:
       return {
         vatNumber: nbr,
-        message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
-        valid: false
+        message:
+          'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+        valid: false,
       }
   }
 }
 
-export function checkAndConvertSiret (siret: string) {
+export function checkAndConvertSiret(siret: string) {
   let total = 0
   let even = false
 
@@ -63,18 +64,18 @@ export function checkAndConvertSiret (siret: string) {
     return {
       valid: false,
       message: 'The SIRET provided is not valid',
-      siren: siret
+      siren: siret,
     }
   }
 
   return {
     valid: true,
     message: '',
-    siren: siret.substring(0, 9)
+    siren: siret.substring(0, 9),
   }
 }
 
-export function getVatNumber (number: string): string {
+export function getVatNumber(number: string): string {
   const validation = (12 + 3 * (parseInt(number, 10) % 97)) % 97
 
   return `FR${validation}${number}`

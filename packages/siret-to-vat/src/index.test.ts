@@ -46,7 +46,7 @@ it('a wrong SIRET should get an error', () => {
   expect(vat).toEqual({
     vatNumber: siret,
     message: 'The SIRET provided is not valid',
-    valid: false
+    valid: false,
   })
 })
 
@@ -57,7 +57,7 @@ it('a valid SIRET should get a valid VAT number', () => {
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
     message: '',
-    valid: true
+    valid: true,
   })
 })
 
@@ -68,7 +68,7 @@ it('a valid spaced SIRET should get a valid VAT number', () => {
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
     message: '',
-    valid: true
+    valid: true,
   })
 })
 
@@ -79,7 +79,7 @@ it('a valid SIREN should get a valid VAT number', () => {
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
     message: '',
-    valid: true
+    valid: true,
   })
 })
 
@@ -90,7 +90,7 @@ it('a valid spaced SIREN should get a valid VAT number', () => {
   expect(vat).toEqual({
     vatNumber: 'FR16817871668',
     message: '',
-    valid: true
+    valid: true,
   })
 })
 
@@ -101,11 +101,13 @@ it('a number size format different from a SIREN or a SIRET should return an erro
   expect(badNumber).toEqual({
     vatNumber: 123456,
     valid: false,
-    message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)'
+    message:
+      'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
   })
   expect(badStringNumber).toEqual({
     vatNumber: '123 456 78 90',
     valid: false,
-    message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)'
+    message:
+      'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
   })
 })
