@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/vat-number",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A tool to validate an european VAT number and get the related business data with the VIES API",
   "keywords": [
     "vat",
@@ -45,7 +45,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/**/*.ts": [
       "prettier --write",
       "git add"
     ]
