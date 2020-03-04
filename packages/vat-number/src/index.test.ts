@@ -14,11 +14,18 @@ it('the processed vat should return a proper object', async () => {
   expect(data).toHaveProperty('valid', true)
 })
 
-it('a wrong vat number should return an error message', async () => {
-  const vatNumber = 'XX99999999999'
+it('the processed wrong vat number should return an error message', async () => {
+  const vatNumber = 'FR16817871667' // This doesn't exist, but does not throw internally
   const data = await getVatNumberInfos(vatNumber)
 
-  expect(data).toHaveProperty('fullVatNumber', 'XX99999999999')
-  expect(data).toHaveProperty('message', 'The VAT number provided is not valid')
+  expect(data).toHaveProperty('fullVatNumber', vatNumber)
+  expect(data).toHaveProperty('valid', false)
+})
+
+it('a wrong vat number should return an error message', async () => {
+  const vatNumber = 'XX99999999999' // This doesn't exist and throws internally
+  const data = await getVatNumberInfos(vatNumber)
+
+  expect(data).toHaveProperty('fullVatNumber', vatNumber)
   expect(data).toHaveProperty('valid', false)
 })

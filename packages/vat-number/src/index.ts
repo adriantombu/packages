@@ -17,12 +17,11 @@ export async function getVatNumberInfos(vatNumber: string): Promise<Result> {
       fullVatNumber: `${results[0].countryCode}${results[0].vatNumber}`,
       name: results[0].name,
       address: results[0].address,
-      valid: true,
+      valid: results[0].valid,
     }
   } catch (err) {
     return {
       fullVatNumber: vatNumber,
-      message: 'The VAT number provided is not valid',
       valid: false,
     }
   }
