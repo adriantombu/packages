@@ -1,6 +1,10 @@
 import { Paybox } from './paybox'
 import axios from 'axios'
 
+beforeEach(() => {
+  jest.resetAllMocks()
+})
+
 test('should get an error from the provided code', () => {
   let error = Paybox.getError('00100')
   expect(error).toBe('Paiement refusé par le centre d’autorisation')

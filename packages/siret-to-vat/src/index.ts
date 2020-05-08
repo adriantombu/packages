@@ -38,8 +38,7 @@ export function convertToVatNumber(nbr: number | string) {
     default:
       return {
         vatNumber: nbr,
-        message:
-          'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+        message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
         valid: false,
       }
   }

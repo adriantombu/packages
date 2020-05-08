@@ -1,18 +1,7 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["es2018", "dom"],
-    "outDir": "lib",
-    "rootDir": "src",
-    "noImplicitAny": false,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "strictNullChecks": false,
-    "esModuleInterop": true,
-    "declaration": true
-  }
+    "outDir": "./lib"
+  },
+  "include": ["./src"]
 }

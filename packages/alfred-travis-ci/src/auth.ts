@@ -6,8 +6,7 @@ const main = () => {
   alfy.output([
     {
       title: 'Token saved !',
-      subtitle:
-        "You can now use the commande 'travis-update' to fetch your repositories",
+      subtitle: "You can now use the commande 'travis-update' to fetch your repositories",
     },
   ])
 }

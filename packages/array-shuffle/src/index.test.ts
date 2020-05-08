@@ -1,10 +1,15 @@
 import { arrayShuffle } from './index'
 
 it('a wrong type should return an error', () => {
+  // @ts-ignore
   expect(() => arrayShuffle()).toThrow()
+  // @ts-ignore
   expect(() => arrayShuffle({ name: 'Definitely not an array' })).toThrow()
+  // @ts-ignore
   expect(() => arrayShuffle(null)).toThrow()
+  // @ts-ignore
   expect(() => arrayShuffle(undefined)).toThrow()
+  // @ts-ignore
   expect(() => arrayShuffle("I'm a string")).toThrow()
 })
 

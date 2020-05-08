@@ -6,15 +6,12 @@ const main = async () => {
   const token = alfy.config.get('token')
   const slug = alfy.input || ''
 
-  const data = await alfy.fetch(
-    `https://api.travis-ci.com/repo/${slug.replace('/', '%2F')}/builds`,
-    {
-      headers: {
-        'Travis-API-Version': 3,
-        Authorization: `token ${token}`,
-      },
+  const data = await alfy.fetch(`https://api.travis-ci.com/repo/${slug.replace('/', '%2F')}/builds`, {
+    headers: {
+      'Travis-API-Version': 3,
+      'Authorization': `token ${token}`,
     },
-  )
+  })
 
   const travisBuilds: TravisBuild[] = data.builds
   const builds = []

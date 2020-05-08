@@ -78,10 +78,7 @@ export class Paybox implements Document {
     const message = querystring.stringify(result as any)
     const publicKey = crypto.createPublicKey(payboxPublicKey)
 
-    return crypto
-      .createVerify('SHA1')
-      .update(message)
-      .verify(publicKey, signature)
+    return crypto.createVerify('SHA1').update(message).verify(publicKey, signature)
   }
 
   async form() {
@@ -89,16 +86,14 @@ export class Paybox implements Document {
       url: await this.getUrl(),
       method: this.request.PBX_RUF1,
       form: this.getFormElements()
-        .map(e => `<input type="hidden" name="${e.name}" value="${e.value}" />`)
+        .map((e) => `<input type="hidden" name="${e.name}" value="${e.value}" />`)
         .join(''),
       elements: this.getFormElements(),
     }
   }
 
   private archivage(): string {
-    return Date.now()
-      .toString()
-      .substr(-12)
+    return Date.now().toString().substr(-12)
   }
 
   private formatAmount(amount: number | string): string {
@@ -117,38 +112,24 @@ export class Paybox implements Document {
 
   private getTime() {
     const now = new Date()
-    const day = now
-      .getDay()
-      .toString()
-      .padStart(2, '0')
+    const day = now.getDay().toString().padStart(2, '0')
     const month = (now.getMonth() + 1).toString().padStart(2, '0')
     const year = now.getFullYear()
-    const hour = now
-      .getHours()
-      .toString()
-      .padStart(2, '0')
-    const minute = now
-      .getMinutes()
-      .toString()
-      .padStart(2, '0')
-    const second = now
-      .getSeconds()
-      .toString()
-      .padStart(2, '0')
+    const hour = now.getHours().toString().padStart(2, '0')
+    const minute = now.getMinutes().toString().padStart(2, '0')
+    const second = now.getSeconds().toString().padStart(2, '0')
 
     return `${day}${month}${year}${hour}${minute}${second}`
   }
 
   private computeHMAC() {
-    const elements = this.getFormElements()
-    const hmac = Buffer.from(this.request.PBX_HMAC, 'hex')
-    const chain = elements.map(e => `${e.name}=${e.value}`).join('&')
+    if (this.request.PBX_HMAC) {
+      const elements = this.getFormElements()
+      const hmac = Buffer.from(this.request.PBX_HMAC, 'hex')
+      const chain = elements.map((e) => `${e.name}=${e.value}`).join('&')
 
-    this.request.PBX_HMAC = crypto
-      .createHmac('sha512', hmac)
-      .update(chain)
-      .digest('hex')
-      .toUpperCase()
+      this.request.PBX_HMAC = crypto.createHmac('sha512', hmac).update(chain).digest('hex').toUpperCase()
+    }
   }
 
   private async getUrl(): Promise<string> {
@@ -164,7 +145,7 @@ export class Paybox implements Document {
     for (const key of Object.keys(this.request)) {
       elements.push({
         name: key,
-        value: this.request[key],
+        value: (this.request as any)[key],
       })
     }
 
@@ -172,7 +153,7 @@ export class Paybox implements Document {
   }
 }
 
-const returnVars = {
+const returnVars = <{ [index: string]: string }>{
   M: 'amount',
   R: 'paymentId',
   T: 'transactionId',

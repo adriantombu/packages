@@ -17,7 +17,7 @@ const main = async () => {
   const data = await alfy.fetch('https://api.travis-ci.com/repos', {
     headers: {
       'Travis-API-Version': 3,
-      Authorization: `token ${token}`,
+      'Authorization': `token ${token}`,
     },
   })
 

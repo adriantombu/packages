@@ -1,28 +1,7 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "outDir": "lib",
-    "rootDir": "src",
-    "noImplicitAny": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "strictNullChecks": false,
-    "esModuleInterop": true
+    "outDir": "./lib"
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib",
-    "src/**/*.test.ts"
-  ]
+  "include": ["./src"]
 }

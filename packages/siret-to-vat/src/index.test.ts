@@ -26,10 +26,15 @@ it('the processed SIREN should return a valid VAT number', () => {
 })
 
 it('a wrong type should return an error', () => {
+  // @ts-ignore
   const emptyValue = convertToVatNumber()
+  // @ts-ignore
   const objectValue = convertToVatNumber({ name: 'I am an object' })
+  // @ts-ignore
   const nullValue = convertToVatNumber(null)
+  // @ts-ignore
   const undefinedValue = convertToVatNumber(undefined)
+  // @ts-ignore
   const arrayValue = convertToVatNumber(['I', 'am', 'an', 'array'])
 
   expect(emptyValue.valid).toBe(false)
@@ -101,13 +106,11 @@ it('a number size format different from a SIREN or a SIRET should return an erro
   expect(badNumber).toEqual({
     vatNumber: 123456,
     valid: false,
-    message:
-      'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+    message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
   })
   expect(badStringNumber).toEqual({
     vatNumber: '123 456 78 90',
     valid: false,
-    message:
-      'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
+    message: 'The number provided must be a SIREN (9 caracters) or SIREN (14 caracters)',
   })
 })

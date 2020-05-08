@@ -1,4 +1,4 @@
-export default {
+export default <{ [index: string]: string }>{
   '00001': 'La connexion au centre d’autorisation a échoué ou une erreur interne est survenue',
   '00003': 'Erreur Paybox',
   '00004': 'Numéro de porteur ou cryptogramme visuel invalide.',

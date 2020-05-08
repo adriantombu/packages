@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/openstack-swift",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple wrapper to easily use the Openstack Swift storage provider",
   "keywords": [
     "openstack",
@@ -14,7 +14,7 @@
   "main": "lib/index.js",
   "types": "lib/main.d.ts",
   "scripts": {
-    "build": "tsc --declaration",
+    "build": "yarn clean && tsc --declaration",
     "test": "echo \"I'm lazy, I did not test this package\" && exit 0",
     "clean": "rimraf ./lib",
     "watch": "tsc -p . --watch"
@@ -22,25 +22,12 @@
   "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
   "license": "MIT",
   "devDependencies": {
-    "@types/pkgcloud": "^1.7.3",
-    "husky": "^3.0.8",
-    "lint-staged": "^9.4.1",
-    "prettier": "^1.18.2",
-    "rimraf": "^3.0.0",
-    "typescript": "^3.6.3"
+    "@types/pkgcloud": "^1.7.3"
   },
   "dependencies": {
-    "pkgcloud": "^2.1.1"
+    "pkgcloud": "^2.2.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.ts": [
-      "prettier --write",
-      "git add"
-    ]
+  "publishConfig": {
+    "access": "public"
   }
 }

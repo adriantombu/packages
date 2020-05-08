@@ -1,44 +1,44 @@
 import { promisify } from 'util'
 import { Readable, Writable } from 'stream'
-import * as pkgcloud  from 'pkgcloud'
+import * as pkgcloud from 'pkgcloud'
 
 export default class Swift {
-  private client: pkgcloud.storage.Client;
-  private container: string;
+  private client: pkgcloud.storage.Client
+  private container: string
 
-  constructor (params: Params) {
+  constructor(params: Params) {
     const options: pkgcloud.OpenstackProviderOptions = {
       provider: 'openstack',
       username: params.username,
       password: params.password,
       authUrl: params.authUrl,
-      region: params.region
+      region: params.region,
     }
 
     this.client = pkgcloud.storage.createClient(options)
     this.container = params.container
   }
 
-  static container (params: Params) {
+  static container(params: Params) {
     return new this({
       container: params.container,
       username: params.username,
       password: params.password,
       authUrl: params.authUrl,
-      region: params.region
+      region: params.region,
     })
   }
 
-  async getAllData () {
+  async getAllData() {
     return {
       container: await this.getContainer(),
-      containerFiles: await this.getContainerFiles()
+      containerFiles: await this.getContainerFiles(),
     }
   }
 
-  async createContainer () {
+  async createContainer() {
     try {
-      return this.client.createContainer({ name: this.container }, (err, container) => container)
+      return this.client.createContainer({ name: this.container }, (_, container) => container)
     } catch (err) {
       console.log(`${err.statusCode} create container errror: ${err.failCode}`)
 
@@ -46,7 +46,7 @@ export default class Swift {
     }
   }
 
-  async destroyContainer () {
+  async destroyContainer() {
     const destroyContainer = promisify(this.client.destroyContainer)
 
     try {
@@ -58,7 +58,7 @@ export default class Swift {
     }
   }
 
-  async getContainer () {
+  async getContainer() {
     const getContainer = promisify(this.client.getContainer)
 
     try {
@@ -70,7 +70,7 @@ export default class Swift {
     }
   }
 
-  async getContainerFiles () {
+  async getContainerFiles() {
     const getFiles = promisify(this.client.getFiles)
 
     try {
@@ -82,7 +82,7 @@ export default class Swift {
     }
   }
 
-  async removeContainerFiles (): Promise<void> {
+  async removeContainerFiles(): Promise<void> {
     const files = await this.getContainerFiles()
 
     try {
@@ -91,12 +91,10 @@ export default class Swift {
       }
     } catch (err) {
       console.log(`${err.statusCode} delete container errror: ${err.failCode}`)
-
-      return null
     }
   }
 
-  async getFile (filename: string) {
+  async getFile(filename: string) {
     const getFile = promisify(this.client.getFile)
 
     try {
@@ -108,13 +106,13 @@ export default class Swift {
     }
   }
 
-  async downloadFile (filename: string): Promise<string> {
+  async downloadFile(filename: string): Promise<string> {
     return new Promise((resolve) => {
       try {
         const file = new Writable()
         // @ts-ignore
         file.data = ''
-        file._write = (chunk, encoding, done) => {
+        file._write = (chunk, _, done) => {
           // @ts-ignore
           this.data += chunk.toString()
           done()
@@ -124,30 +122,30 @@ export default class Swift {
           {
             container: this.container,
             remote: filename,
-            stream: file
+            stream: file,
           },
           // @ts-ignore
           (err) => {
             if (err) {
               console.log(`${err.statusCode} download file errror: ${err.failCode}`)
 
-              return resolve(null)
+              return resolve()
             }
 
             // @ts-ignore
             return resolve(JSON.parse(file.data))
-          }
+          },
         )
       } catch (err) {
         console.log(`${err.statusCode} download file errror: ${err.failCode}`)
 
-        return resolve(null)
+        return resolve()
       }
     })
   }
 
-  async uploadFile (filename: string, data: any): Promise<boolean> {
-    return new Promise(resolve => {
+  async uploadFile(filename: string, data: any): Promise<boolean> {
+    return new Promise((resolve) => {
       try {
         const readStream = new Readable()
         readStream.push(JSON.stringify(data))
@@ -155,7 +153,7 @@ export default class Swift {
 
         const writeStream = this.client.upload({
           container: this.container,
-          remote: filename
+          remote: filename,
         })
 
         writeStream.on('success', () => {
@@ -171,7 +169,7 @@ export default class Swift {
     })
   }
 
-  async removeFile (filename: string) {
+  async removeFile(filename: string) {
     const removeFile = promisify(this.client.removeFile)
 
     try {
@@ -185,9 +183,9 @@ export default class Swift {
 }
 
 export interface Params {
-  container: string,
-  username: string,
-  password: string,
-  authUrl: string,
+  container: string
+  username: string
+  password: string
+  authUrl: string
   region: string
 }
