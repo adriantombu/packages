@@ -12,7 +12,7 @@
     "taxes",
     "business"
   ],
-  "repository": "https://github.com/adriantombu/siret-to-vat",
+  "repository": "https://github.com/adriantombu/packages/tree/master/packages/siret-to-vat",
   "main": "lib/index.js",
   "scripts": {
     "build": "yarn clean && tsc --declaration",

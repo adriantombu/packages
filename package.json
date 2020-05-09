@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "prepare": "lerna run build",
-    "prepublishOnly": "lerna run test"
+    "prepublishOnly": "lerna run test",
+    "deploy": "lerna version && lerna publish from-package"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.30",

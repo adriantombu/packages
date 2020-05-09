@@ -10,7 +10,7 @@
     "api",
     "storage"
   ],
-  "repository": "https://github.com/adriantombu/openstack-swift",
+  "repository": "https://github.com/adriantombu/packages/tree/master/packages/openstack-swift",
   "main": "lib/index.js",
   "types": "lib/main.d.ts",
   "scripts": {

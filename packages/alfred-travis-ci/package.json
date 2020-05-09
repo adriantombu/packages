@@ -9,10 +9,6 @@
     "postinstall": "if [ -z \"$GITHUB_WORKFLOW\" ]; then alfy-init; fi",
     "preuninstall": "if [ -z \"$GITHUB_WORKFLOW\" ]; then alfy-cleanup; fi"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adriantombu/alfred-travis-ci.git"
-  },
   "keywords": [
     "alfred",
     "automation",
@@ -24,10 +20,7 @@
   ],
   "author": "Adrian Tombu <adrian@otso.fr>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/adriantombu/alfred-travis-ci/issues"
-  },
-  "homepage": "https://github.com/adriantombu/alfred-travis-ci#readme",
+  "homepage": "https://github.com/adriantombu/packages/tree/master/packages/alfred-travis-ci",
   "dependencies": {
     "alfy": "^0.9.1",
     "moment": "^2.24.0"
