@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/salesforce-convert-id",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This library converts a 15 character Salesforce ID to a 18 characters Salesforce ID",
   "keywords": [
     "salesforce",
