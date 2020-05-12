@@ -1,0 +1,29 @@
+{
+  "name": "@adriantombu/salesforce-convert-id",
+  "version": "1.0.0",
+  "description": "This library converts a 15 character Salesforce ID to a 18 characters Salesforce ID",
+  "keywords": [
+    "salesforce",
+    "id",
+    "api",
+    "record",
+    "crm",
+    "conversion"
+  ],
+  "repository": "https://github.com/adriantombu/packages/tree/master/packages/convert-id",
+  "main": "lib/index.js",
+  "types": "lib/main.d.ts",
+  "scripts": {
+    "build": "yarn clean && tsc --declaration",
+    "test": "jest --coverage",
+    "clean": "rimraf ./coverage ./lib",
+    "watch": "tsc -p . --watch",
+    "watch:test": "jest --watchAll"
+  },
+  "author": "Adrian Tombu <adrian@otso.fr> (https://otso.fr)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "efdc3513513fe2787b2d974a66b5bbe8e93360c6"
+}
