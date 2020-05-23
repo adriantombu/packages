@@ -14,6 +14,7 @@
   ],
   "repository": "https://github.com/adriantombu/packages/tree/master/packages/siret-to-vat",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "yarn clean && tsc --declaration",
     "test": "jest --coverage",

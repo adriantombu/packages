@@ -12,7 +12,7 @@
   ],
   "repository": "https://github.com/adriantombu/packages/tree/master/packages/vat-number",
   "main": "lib/index.js",
-  "types": "lib/main.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "yarn clean && tsc --declaration",
     "test": "jest --coverage",

@@ -10,6 +10,7 @@
     "e-commerce"
   ],
   "main": "lib/paybox.js",
+  "types": "lib/paybox.d.ts",
   "repository": "https://github.com/adriantombu/packages/tree/master/packages/paybox-system",
   "author": "Adrian Tombu <adrian@otso.fr>",
   "license": "MIT",
