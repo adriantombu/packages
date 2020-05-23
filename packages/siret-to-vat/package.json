@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/siret-to-vat",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "This small library converts a French SIREN or SIRET to a valid VAT number.",
   "keywords": [
     "siret",

@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/paybox-system",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A simple implementation of the Paybox System payment solution",
   "keywords": [
     "paybox",
