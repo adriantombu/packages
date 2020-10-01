@@ -72,14 +72,14 @@
   integrity sha512-6ckxMjBBD8URvjB6J3NcnuAn5Pkl7t3TizAg+xdlzzQGSPSmBcXf8KoIH0ua/i+tio+ZRUHEXp0HEmvaR4kt0w==
 
 "@types/node@*":
-  version "13.13.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.5.tgz#96ec3b0afafd64a4ccea9107b75bf8489f0e5765"
-  integrity sha512-3ySmiBYJPqgjiHA7oEaIo2Rzz0HrOZ7yrNO5HWyaE5q0lQ3BppDZ3N53Miz8bw2I7gh1/zir2MGVZBvpb1zq9g==
+  version "14.11.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.11.2.tgz#2de1ed6670439387da1c9f549a2ade2b0a799256"
+  integrity sha512-jiE3QIxJ8JLNcb1Ps6rDbysDhN4xa8DJJvuC9prr6w+1tIh+QAbYyNF3tyiZNLDBIuBCf4KEcV2UvQm/V60xfA==
 
 "@types/pkgcloud@^1.7.3":
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/@types/pkgcloud/-/pkgcloud-1.7.3.tgz#0f97158a9b23e292c1e6d49b98bc59aab6f7298b"
-  integrity sha512-W+hskNPzJANmG2rKSXELwMYFV3PsV4TYqz37fR9jcoquhC7mCo/zWjgIXCSe3emX9PTeRnPpFzzED5cg7LnTbg==
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/@types/pkgcloud/-/pkgcloud-1.7.4.tgz#ccce313cd584623787581d2d4384f6f911c06b64"
+  integrity sha512-syikaJpSx59aAxGd0i/FX5VgFLlO8OSxZLUVhwOhJqx+CRsdgaWB9TqIm5kSqJxLoyIird63QLt96Px63rHnOw==
   dependencies:
     "@types/node" "*"
 

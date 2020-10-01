@@ -12,7 +12,7 @@
     "no-dependencies",
     "light"
   ],
-  "repository": "https://github.com/adriantombu/packages/tree/master/packages/array-shuffle",
+  "repository": "https://github.com/adriantombu/packages/tree/main/packages/array-shuffle",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

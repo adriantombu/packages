@@ -10,7 +10,7 @@
     "crm",
     "conversion"
   ],
-  "repository": "https://github.com/adriantombu/packages/tree/master/packages/convert-id",
+  "repository": "https://github.com/adriantombu/packages/tree/main/packages/convert-id",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
