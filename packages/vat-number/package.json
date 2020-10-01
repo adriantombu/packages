@@ -10,7 +10,7 @@
     "taxes",
     "business"
   ],
-  "repository": "https://github.com/adriantombu/packages/tree/master/packages/vat-number",
+  "repository": "https://github.com/adriantombu/packages/tree/main/packages/vat-number",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

@@ -20,7 +20,7 @@
   ],
   "author": "Adrian Tombu <adrian@otso.fr>",
   "license": "MIT",
-  "homepage": "https://github.com/adriantombu/packages/tree/master/packages/alfred-travis-ci",
+  "homepage": "https://github.com/adriantombu/packages/tree/main/packages/alfred-travis-ci",
   "dependencies": {
     "alfy": "^0.9.1",
     "moment": "^2.24.0"
