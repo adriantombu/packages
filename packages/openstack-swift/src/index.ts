@@ -1,150 +1,153 @@
-import { promisify } from 'util'
 import { Readable, Writable } from 'stream'
 import * as pkgcloud from 'pkgcloud'
 
 export default class Swift {
   private client: pkgcloud.storage.Client
-  private container: string
 
-  constructor(params: Params) {
+  constructor(params: pkgcloud.OpenstackProviderOptions) {
     const options: pkgcloud.OpenstackProviderOptions = {
       provider: 'openstack',
       username: params.username,
       password: params.password,
       authUrl: params.authUrl,
       region: params.region,
+      tenantId: params.tenantId,
+      version: params.version,
+      keystoneAuthVersion: params.keystoneAuthVersion,
+      domainId: params.domainId,
+      domainName: params.domainName,
     }
 
     this.client = pkgcloud.storage.createClient(options)
-    this.container = params.container
   }
 
-  static container(params: Params) {
-    return new this({
-      container: params.container,
-      username: params.username,
-      password: params.password,
-      authUrl: params.authUrl,
-      region: params.region,
+  static client(params: pkgcloud.OpenstackProviderOptions): Swift {
+    return new Swift(params)
+  }
+
+  async getAllData(container: string) {
+    return {
+      container: await this.getContainer(container),
+      containerFiles: await this.getContainerFiles(container),
+    }
+  }
+
+  async createContainer(container: string, metadata: object = {}): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.client.createContainer({ name: container, metadata }, function (err) {
+        if (err) {
+          console.error(`${err.statusCode} create container errror: ${err.failCode}`)
+
+          resolve(false)
+        }
+
+        resolve(true)
+      })
     })
   }
 
-  async getAllData() {
-    return {
-      container: await this.getContainer(),
-      containerFiles: await this.getContainerFiles(),
+  async destroyContainer(container: string): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.client.destroyContainer(container, function (err) {
+        if (err) {
+          console.error(`${err.statusCode} destroy container errror: ${err.failCode}`)
+
+          resolve(false)
+        }
+
+        resolve(true)
+      })
+    })
+  }
+
+  async getContainer(container: string): Promise<pkgcloud.storage.Container | null> {
+    return new Promise((resolve) => {
+      this.client.getContainer(container, function (err, container) {
+        if (err) {
+          console.error(`${err.statusCode} fetch container errror: ${err.failCode}`)
+
+          resolve(null)
+        }
+
+        resolve(container)
+      })
+    })
+  }
+
+  async getContainerFiles(container: string): Promise<pkgcloud.storage.File[]> {
+    return new Promise((resolve) => {
+      this.client.getFiles(container, function (err, files) {
+        if (err) {
+          console.error(`${err.statusCode} get container files errror: ${err.failCode}`)
+
+          resolve([])
+        }
+
+        resolve(files)
+      })
+    })
+  }
+
+  async removeContainerFiles(container: string): Promise<void> {
+    const files = await this.getContainerFiles(container)
+
+    for (const file of files) {
+      await this.removeFile(container, file.name)
     }
   }
 
-  async createContainer() {
-    try {
-      return this.client.createContainer({ name: this.container }, (_, container) => container)
-    } catch (err) {
-      console.log(`${err.statusCode} create container errror: ${err.failCode}`)
+  async getFile(container: string, filename: string): Promise<pkgcloud.storage.File | null> {
+    return new Promise((resolve) => {
+      this.client.getFile(container, filename, function (err, file) {
+        if (err) {
+          console.error(`${err.statusCode} fetching file errror: ${err.failCode}`)
 
-      return false
-    }
+          resolve(null)
+        }
+
+        resolve(file)
+      })
+    })
   }
 
-  async destroyContainer() {
-    const destroyContainer = promisify(this.client.destroyContainer)
-
-    try {
-      return destroyContainer(this.container)
-    } catch (err) {
-      console.log(`${err.statusCode} destroy container errror: ${err.failCode}`)
-
-      return false
-    }
-  }
-
-  async getContainer() {
-    const getContainer = promisify(this.client.getContainer)
-
-    try {
-      return getContainer(this.container)
-    } catch (err) {
-      console.log(`${err.statusCode} fetch container errror: ${err.failCode}`)
-
-      return null
-    }
-  }
-
-  async getContainerFiles() {
-    const getFiles = promisify(this.client.getFiles)
-
-    try {
-      return getFiles(this.container)
-    } catch (err) {
-      console.log(`${err.statusCode} get container files errror: ${err.failCode}`)
-
-      return []
-    }
-  }
-
-  async removeContainerFiles(): Promise<void> {
-    const files = await this.getContainerFiles()
-
-    try {
-      for (const file of files) {
-        await this.removeFile(file.name)
-      }
-    } catch (err) {
-      console.log(`${err.statusCode} delete container errror: ${err.failCode}`)
-    }
-  }
-
-  async getFile(filename: string) {
-    const getFile = promisify(this.client.getFile)
-
-    try {
-      return await getFile(this.container, filename)
-    } catch (err) {
-      console.log(`${err.statusCode} fetching file errror: ${err.failCode}`)
-
-      return null
-    }
-  }
-
-  async downloadFile(filename: string): Promise<string> {
+  async downloadFile(container: string, filename: string): Promise<string> {
     return new Promise((resolve) => {
       try {
-        const file = new Writable()
-        // @ts-ignore
+        const file: Result = new Writable()
         file.data = ''
-        file._write = (chunk, _, done) => {
-          // @ts-ignore
+        file._write = function (chunk, _, done) {
           this.data += chunk.toString()
           done()
         }
 
         this.client.download(
           {
-            container: this.container,
+            container: container,
             remote: filename,
             stream: file,
           },
+
+          // Types for this method are not up to date with the pkgcloud library
           // @ts-ignore
-          (err) => {
+          (err: error) => {
             if (err) {
-              console.log(`${err.statusCode} download file errror: ${err.failCode}`)
+              console.error(`${err.statusCode} download file errror: ${err.failCode}`)
 
               return resolve()
             }
 
-            // @ts-ignore
-            return resolve(JSON.parse(file.data))
+            return resolve(file.data ? JSON.parse(file.data) : '')
           },
         )
       } catch (err) {
-        console.log(`${err.statusCode} download file errror: ${err.failCode}`)
+        console.error(`${err.statusCode} download file errror: ${err.failCode}`)
 
         return resolve()
       }
     })
   }
 
-  async uploadFile(filename: string, data: any): Promise<boolean> {
+  async uploadFile(container: string, filename: string, data: any): Promise<boolean> {
     return new Promise((resolve) => {
       try {
         const readStream = new Readable()
@@ -152,7 +155,7 @@ export default class Swift {
         readStream.push(null)
 
         const writeStream = this.client.upload({
-          container: this.container,
+          container: container,
           remote: filename,
         })
 
@@ -162,30 +165,28 @@ export default class Swift {
 
         readStream.pipe(writeStream)
       } catch (err) {
-        console.log(`${err.statusCode} upload file errror: ${err.failCode}`)
+        console.error(`${err.statusCode} upload file errror: ${err.failCode}`)
 
         return resolve(false)
       }
     })
   }
 
-  async removeFile(filename: string) {
-    const removeFile = promisify(this.client.removeFile)
+  async removeFile(container: string, filename: string): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.client.removeFile(container, filename, function (err) {
+        if (err) {
+          console.error(`${err.statusCode} remove fil errror: ${err.failCode}`)
 
-    try {
-      return removeFile(this.container, filename)
-    } catch (err) {
-      console.log(`${err.statusCode} remove fil errror: ${err.failCode}`)
+          resolve(false)
+        }
 
-      return null
-    }
+        resolve(true)
+      })
+    })
   }
 }
 
-export interface Params {
-  container: string
-  username: string
-  password: string
-  authUrl: string
-  region: string
+interface Result extends Writable {
+  data?: string
 }
