@@ -10,7 +10,7 @@ it('the processed vat should return a proper object', async () => {
   expect(data).toHaveProperty('vatNumber', '16817871668')
   expect(data).toHaveProperty('fullVatNumber', 'FR16817871668')
   expect(data).toHaveProperty('name', 'SASU OTSO')
-  expect(data).toHaveProperty('address', 'CS 21531\n59 ALL JEAN JAURES\n31000 TOULOUSE')
+  expect(data).toHaveProperty('address', '215 CHE DES LITTRATS\n82800 PUYGAILLARD-DE-QUERCY')
   expect(data).toHaveProperty('valid', true)
 })
 
