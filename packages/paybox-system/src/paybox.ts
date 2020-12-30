@@ -126,7 +126,7 @@ export class Paybox implements Document {
     if (this.request.PBX_HMAC) {
       const elements = this.getFormElements()
       const hmac = Buffer.from(this.request.PBX_HMAC, 'hex')
-      const chain = elements.map((e) => `${e.name}=${e.value}`).join('&')
+      const chain = elements.filter(e => e.name !== 'PBX_HMAC').map((e) => `${e.name}=${e.value}`).join('&')
 
       this.request.PBX_HMAC = crypto.createHmac('sha512', hmac).update(chain).digest('hex').toUpperCase()
     }
