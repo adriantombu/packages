@@ -47,7 +47,7 @@ test('should get a valid sandbox paybox form', async () => {
     payboxAnnule: 'https://www.exemple.com/payment/cancelled',
     payboxAttente: 'https://www.exemple.com/payment/waiting',
     payboxRepondreA: 'https://www.exemple.com/payment/process',
-    amount: 50,
+    amount: 5000,
     email: 'adrian@example.com',
     reference: '123456',
   })
@@ -81,7 +81,7 @@ test('should get a valid production paybox form', async () => {
     payboxAnnule: 'https://www.exemple.com/payment/cancelled',
     payboxAttente: 'https://www.exemple.com/payment/waiting',
     payboxRepondreA: 'https://www.exemple.com/payment/process',
-    amount: 50,
+    amount: 5000,
     email: 'adrian@example.com',
     reference: '123456',
   })
@@ -115,7 +115,7 @@ test('should create a paybox payment', () => {
     payboxAnnule: 'https://www.exemple.com/payment/cancelled',
     payboxAttente: 'https://www.exemple.com/payment/waiting',
     payboxRepondreA: 'https://www.exemple.com/payment/process',
-    amount: 50,
+    amount: 5000,
     email,
     reference: '123456',
   })

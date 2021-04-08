@@ -62,7 +62,7 @@ export class Paybox implements Document {
     return (
       !!result.authorizationId &&
       result.error === '00000' &&
-      Number.parseInt(result.amount, 10) === amount &&
+      parseInt(result.amount, 10) === amount &&
       this.signatureIsValid(result)
     )
   }
@@ -97,7 +97,7 @@ export class Paybox implements Document {
   }
 
   private formatAmount(amount: number | string): string {
-    return `${parseInt(amount.toString(), 10) * 100}`.padStart(10, '0')
+    return `${parseInt(amount.toString(), 10)}`.padStart(10, '0')
   }
 
   private setReturnVars(): string {
