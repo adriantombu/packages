@@ -110,7 +110,7 @@ export default class Swift {
     })
   }
 
-  async downloadFile(container: string, filename: string): Promise<string> {
+  async downloadFile(container: string, filename: string): Promise<string | null> {
     return new Promise((resolve) => {
       try {
         const file: Result = new Writable()
@@ -133,7 +133,7 @@ export default class Swift {
             if (err) {
               console.error(`${err.statusCode} download file errror: ${err.failCode}`)
 
-              return resolve()
+              return resolve(null)
             }
 
             return resolve(file.data ? JSON.parse(file.data) : '')
@@ -142,7 +142,7 @@ export default class Swift {
       } catch (err) {
         console.error(`${err.statusCode} download file errror: ${err.failCode}`)
 
-        return resolve()
+        return resolve(null)
       }
     })
   }

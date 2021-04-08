@@ -351,5 +351,5 @@ export interface Result {
    * Signature sur les variables de l’URL
    * Format : url-encodé
    */
-  signature: string
+  signature?: string
 }

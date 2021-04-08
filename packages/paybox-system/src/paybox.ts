@@ -68,7 +68,7 @@ export class Paybox implements Document {
   }
 
   static signatureIsValid(result: Result): boolean {
-    const signature = new Buffer(result.signature, 'base64')
+    const signature = new Buffer(result.signature || '', 'base64')
     delete result.signature
 
     if (signature.length !== 128) {
