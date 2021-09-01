@@ -1,5 +1,5 @@
 import alfy from 'alfy'
-import moment from 'moment'
+import dayjs from 'dayjs'
 import { TravisBuild, Build } from './interfaces'
 
 const main = async () => {
@@ -37,13 +37,13 @@ const main = async () => {
 }
 
 const getSubtitle = (build: TravisBuild) => {
-  const startedAt = moment(build.started_at).format('lll')
+  const startedAt = dayjs(build.started_at).format('lll')
 
   if (!build.duration) {
     return `Currently building, started at ${startedAt}...`
   }
 
-  const finishedAt = moment(build.finished_at).format('lll')
+  const finishedAt = dayjs(build.finished_at).format('lll')
 
   return `From ${startedAt} to ${finishedAt} (${build.duration} seconds)`
 }

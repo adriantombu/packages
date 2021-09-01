@@ -139,7 +139,7 @@ export default class Swift {
             return resolve(file.data ? JSON.parse(file.data) : '')
           },
         )
-      } catch (err) {
+      } catch (err: any) {
         console.error(`${err.statusCode} download file errror: ${err.failCode}`)
 
         return resolve(null)
@@ -164,7 +164,7 @@ export default class Swift {
         })
 
         readStream.pipe(writeStream)
-      } catch (err) {
+      } catch (err: any) {
         console.error(`${err.statusCode} upload file errror: ${err.failCode}`)
 
         return resolve(false)

@@ -22,8 +22,8 @@
   "license": "MIT",
   "homepage": "https://github.com/adriantombu/packages/tree/main/packages/alfred-travis-ci",
   "dependencies": {
-    "alfy": "^0.10.0",
-    "moment": "^2.29.0"
+    "alfy": "^0.12.1",
+    "dayjs": "^1.10.6"
   },
   "publishConfig": {
     "access": "public"

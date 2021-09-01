@@ -76,10 +76,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.11.2.tgz#2de1ed6670439387da1c9f549a2ade2b0a799256"
   integrity sha512-jiE3QIxJ8JLNcb1Ps6rDbysDhN4xa8DJJvuC9prr6w+1tIh+QAbYyNF3tyiZNLDBIuBCf4KEcV2UvQm/V60xfA==
 
-"@types/pkgcloud@^1.7.3":
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/@types/pkgcloud/-/pkgcloud-1.7.4.tgz#ccce313cd584623787581d2d4384f6f911c06b64"
-  integrity sha512-syikaJpSx59aAxGd0i/FX5VgFLlO8OSxZLUVhwOhJqx+CRsdgaWB9TqIm5kSqJxLoyIird63QLt96Px63rHnOw==
+"@types/pkgcloud@^1.7.5":
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/@types/pkgcloud/-/pkgcloud-1.7.5.tgz#8ef3726251d4f5efb248a99450bd8ebd880a0e61"
+  integrity sha512-k1UffrESqhsajxHsH49vHvyY7dRf9c+42Y/4LS4HHMEbIJ+3I+ccF50Q3LcA9uh1reZ2iPtaw+NQRMcuYyhlOQ==
   dependencies:
     "@types/node" "*"
 
