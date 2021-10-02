@@ -4,8 +4,8 @@
   "scripts": {
     "test": "lerna run test",
     "build": "lerna run build",
-    "prepare": "lerna run bootstrap && yarn build && husky install",
-    "prepublishOnly": "yarn test",
+    "postinstall": "lerna run bootstrap && husky install",
+    "prepublishOnly": "yarn build && yarn test",
     "deploy": "lerna version && lerna publish from-package"
   },
   "devDependencies": {
