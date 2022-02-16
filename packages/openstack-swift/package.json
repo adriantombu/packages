@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/openstack-swift",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A simple wrapper to easily use the Openstack Swift storage provider",
   "keywords": [
     "openstack",
