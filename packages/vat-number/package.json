@@ -26,6 +26,6 @@
     "access": "public"
   },
   "dependencies": {
-    "soap": "^0.42.0"
+    "soap": "^0.45.0"
   }
 }
