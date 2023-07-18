@@ -1,6 +1,6 @@
 {
   "name": "@adriantombu/array-shuffle",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "A package that... well... shuffles the values of an array. Yup. That's all.",
   "keywords": [
     "array",
